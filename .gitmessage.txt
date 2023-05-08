@@ -1,6 +1,6 @@
-feature : Socket.io 연결
+feature : WebRTC 연동
 
-1. Socket.io 연결
+1. 1:1 WebRTC 연동
 
 
 
