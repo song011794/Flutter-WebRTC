@@ -5,14 +5,14 @@ import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class Rtc extends StatefulWidget {
-  const Rtc({Key? key}) : super(key: key);
+class BlocRtc extends StatefulWidget {
+  const BlocRtc({Key? key}) : super(key: key);
 
   @override
   _RtcState createState() => _RtcState();
 }
 
-class _RtcState extends State<Rtc> {
+class _RtcState extends State<BlocRtc> {
   late final IO.Socket socket;
   final _localRenderer = RTCVideoRenderer();
   final _remoteRenderer = RTCVideoRenderer();
@@ -26,44 +26,14 @@ class _RtcState extends State<Rtc> {
   }
 
   Future init() async {
-    await _localRenderer.initialize();
-    await _remoteRenderer.initialize();
+    // await _localRenderer.initialize();
+    // await _remoteRenderer.initialize();
 
-    await connectSocket();
-    await joinRoom();
+  
+    // await joinRoom();
   }
 
-  Future connectSocket() async {
-    socket = IO.io(dotenv.get('SOCKET_HOST'),
-        IO.OptionBuilder().setTransports(['websocket']).build());
-
-    socket.onConnect((_) {
-      print('연결 완료!');
-    });
-    
-    
-
-    socket.on('joined', (data) {
-      _sendOffer();
-    });
-
-    socket.on('offer', (data) async {
-      data = jsonDecode(data);
-      await _gotOffer(RTCSessionDescription(data['sdp'], data['type']));
-      await _sendAnswer();
-    });
-
-    socket.on('answer', (data) {
-      data = jsonDecode(data);
-      _gotAnswer(RTCSessionDescription(data['sdp'], data['type']));
-    });
-
-    socket.on('ice', (data) {
-      data = jsonDecode(data);
-      _gotIce(RTCIceCandidate(
-          data['candidate'], data['sdpMid'], data['sdpMLineIndex']));
-    });
-  }
+  
 
   Future joinRoom() async {
     final config = {
@@ -150,20 +120,22 @@ class _RtcState extends State<Rtc> {
   Widget build(BuildContext context) {
     print('build');
     return MaterialApp(
-      home: Row(
-        children: [
-          Expanded(
-              child: RTCVideoView(
-            _localRenderer,
-            objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-          )),
-          Expanded(
-              child: RTCVideoView(
-            _remoteRenderer,
-            objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-          ))
-        ],
-      ),
+      home: 
+      Container()
+      // Row(
+      //   children: [
+      //     Expanded(
+      //         child: RTCVideoView(
+      //       _localRenderer,
+      //       objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+      //     )),
+      //     Expanded(
+      //         child: RTCVideoView(
+      //       _remoteRenderer,
+      //       objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+      //     ))
+      //   ],
+      // ),
     );
   }
 }

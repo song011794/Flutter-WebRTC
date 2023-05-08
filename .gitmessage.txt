@@ -1,6 +1,6 @@
-feature : WebRTC 연동
+refactor : Bloc 연동
 
-1. 1:1 WebRTC 연동
+1. Bloc 연동
 
 
 

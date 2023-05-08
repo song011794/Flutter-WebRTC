@@ -5,17 +5,17 @@ import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class Rtc extends StatefulWidget {
-  const Rtc({Key? key}) : super(key: key);
+class TestRtc extends StatefulWidget {
+  const TestRtc({Key? key}) : super(key: key);
 
   @override
   _RtcState createState() => _RtcState();
 }
 
-class _RtcState extends State<Rtc> {
+class _RtcState extends State<TestRtc> {
   late final IO.Socket socket;
-  final _localRenderer = RTCVideoRenderer();
-  final _remoteRenderer = RTCVideoRenderer();
+  final List<RTCVideoRenderer> _renderer = [];
+  // final _remoteRenderer = RTCVideoRenderer();
   MediaStream? _localStream;
   RTCPeerConnection? pc;
 
@@ -26,8 +26,8 @@ class _RtcState extends State<Rtc> {
   }
 
   Future init() async {
-    await _localRenderer.initialize();
-    await _remoteRenderer.initialize();
+    _renderer.add(RTCVideoRenderer());
+    await _renderer.elementAt(0).initialize();
 
     await connectSocket();
     await joinRoom();
@@ -40,9 +40,7 @@ class _RtcState extends State<Rtc> {
     socket.onConnect((_) {
       print('연결 완료!');
     });
-    
-    
-
+    //
     socket.on('joined', (data) {
       _sendOffer();
     });
@@ -94,16 +92,21 @@ class _RtcState extends State<Rtc> {
       pc!.addTrack(track, _localStream!);
     });
 
-    _localRenderer.srcObject = _localStream;
+    _renderer.elementAt(0).srcObject = _localStream;
     setState(() {});
 
     pc!.onIceCandidate = (ice) {
       _sendIce(ice);
     };
 
-    pc!.onAddStream = (stream) {
+    pc!.onAddStream = (stream) async {
       print('remoteRenderer');
-      _remoteRenderer.srcObject = stream;
+      _renderer.add(RTCVideoRenderer());
+      // await
+      await _renderer.last.initialize();
+      _renderer.last.srcObject = stream;
+
+      // _remoteRenderer.srcObject = stream;
       setState(() {});
     };
 
@@ -112,6 +115,10 @@ class _RtcState extends State<Rtc> {
     };
 
     socket.emit('join');
+  }
+
+  Future onAddUser() async {
+    _renderer.add(RTCVideoRenderer());
   }
 
   Future _sendOffer() async {
@@ -152,16 +159,22 @@ class _RtcState extends State<Rtc> {
     return MaterialApp(
       home: Row(
         children: [
-          Expanded(
-              child: RTCVideoView(
-            _localRenderer,
-            objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-          )),
-          Expanded(
-              child: RTCVideoView(
-            _remoteRenderer,
-            objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-          ))
+          for (int i = 0; i < _renderer.length; i++)
+            Expanded(
+                child: RTCVideoView(
+              _renderer[i],
+              objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+            )),
+          //   Expanded(
+          //       child: RTCVideoView(
+          //     _localRenderer,
+          //     objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+          //   )),
+          // Expanded(
+          //     child: RTCVideoView(
+          //   _remoteRenderer,
+          //   objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+          // ))
         ],
       ),
     );

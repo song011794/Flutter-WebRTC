@@ -1,8 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+import 'package:webrtc/block_rtc_screen.dart';
 import 'package:webrtc/rtc.dart';
+import 'package:webrtc/test_rtc.dart';
+
+import 'blocs/socket_bloc.dart';
 
 void main() async{
    HttpOverrides.global = MyHttpOverrides();
@@ -57,8 +63,15 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    // Navigator.push(
+    //     context, MaterialPageRoute(builder: (context) => const Rtc()));
+
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const Rtc()));
+        context, MaterialPageRoute(builder: (context) => 
+         BlocProvider(
+          create: (context) => SocketBloc(),
+          lazy: false,
+          child: const BlocRtc())));
   }
 
   @override
