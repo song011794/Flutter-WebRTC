@@ -1,6 +1,7 @@
-refactor : Bloc 연동
+refactor : Bloc Cubit 소스 리펙토링
 
-1. Bloc 연동
+1. Bloc Cubit 소스 리펙토링
+
 
 
 

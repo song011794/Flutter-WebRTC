@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-import 'package:webrtc/block_rtc_screen.dart';
-import 'package:webrtc/rtc.dart';
-import 'package:webrtc/test_rtc.dart';
 
-import 'blocs/socket_bloc.dart';
+
+import 'package:webrtc/webrtc_page.dart';
+
+
 
 void main() async{
    HttpOverrides.global = MyHttpOverrides();
@@ -68,10 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => 
-         BlocProvider(
-          create: (context) => SocketBloc(),
-          lazy: false,
-          child: const BlocRtc())));
+         WebRTCPage()));
   }
 
   @override
