@@ -35,7 +35,7 @@ class _RtcState extends State<Rtc> {
     socket.onConnect((_) {
       print('연결 완료!');
     });
-
+    //
     socket.on('joined', (data) => {});
     socket.on('offer', (data) => {});
     socket.on('answer', (data) => {});
