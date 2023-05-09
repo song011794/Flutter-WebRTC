@@ -1,11 +1,12 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-enum WebRTCState { initial, connecting, connected, error }
+enum WebRTCState { initial, connecting, connected,remoteConnecting ,remoteConnected, error }
 
 class WebRTCBloc extends Cubit<WebRTCState> {
   WebRTCBloc() : super(WebRTCState.initial);
@@ -24,35 +25,6 @@ class WebRTCBloc extends Cubit<WebRTCState> {
     remoteRenderer.initialize();
     await connectSocket();
     await joinRoom();
-    // // Get access to the user's camera and microphone
-    // localStream = await navigator.mediaDevices.getUserMedia({
-    //   'audio': true,
-    //   'video': true,
-    // });
-
-    // // Set the initial state to "connecting"
-    // emit(WebRTCState.connecting);
-
-    // // Create a new peer connection
-    // _peerConnection = await createPeerConnection({
-    //   'iceServers': [
-    //     {'url': 'stun:stun.l.google.com:19302'}
-    //   ]
-    // }, {});
-
-    // // Set up the peer connection event handlers
-    // _peerConnection.onIceCandidate = (RTCIceCandidate candidate) {
-    //   // Send the candidate to the other peer
-    // };
-
-    // _peerConnection.onAddStream = (MediaStream stream) {
-    //   remoteStream = stream;
-    //   // Set the state to "connected"
-    //   emit(WebRTCState.connected);
-    // };
-
-    // // Add the local stream to the peer connection
-    // _peerConnection.addStream(localStream);
   }
 
   Future connectSocket() async {
@@ -74,6 +46,7 @@ class WebRTCBloc extends Cubit<WebRTCState> {
     });
 
     socket.on('answer', (data) {
+      emit(WebRTCState.connecting);
       data = jsonDecode(data);
       _gotAnswer(RTCSessionDescription(data['sdp'], data['type']));
     });
@@ -124,16 +97,13 @@ class WebRTCBloc extends Cubit<WebRTCState> {
     };
 
     pc!.onAddStream = (stream) {
+      emit(WebRTCState.remoteConnecting);
       print('remoteRenderer');
       remoteRenderer.srcObject = stream;
-      emit(WebRTCState.connected);
+      emit(WebRTCState.remoteConnected);
     };
 
-    pc!.onRemoveStream = (stream) {
-      print('RemoveStream');
-    };
-
-    socket.emit('join');
+    socket.emit('join', {'room': '1234'});
   }
 
   Future _sendOffer() async {
@@ -168,41 +138,19 @@ class WebRTCBloc extends Cubit<WebRTCState> {
     pc!.addCandidate(ice);
   }
 
-  // void connect() async {
-  //   // Create an offer to start the connection
-  //   await _peerConnection.createOffer({
-  //     'offerToReceiveAudio': true,
-  //     'offerToReceiveVideo': true,
-  //   }).then((offer) {
-  //     _peerConnection.setLocalDescription(offer);
-  //     // Send the offer to the other peer
-  //   });
-  // }
-
-  // void handleAnswer(dynamic data) async {
-  //   // Handle the answer from the other peer
-  //   await _peerConnection.setRemoteDescription(RTCSessionDescription(
-  //     data['sdp'],
-  //     data['type'],
-  //   ));
-  // }
-
-  // void handleCandidate(dynamic data) async {
-  //   // Handle the ICE candidate from the other peer
-  //   await _peerConnection.addCandidate(RTCIceCandidate(
-  //     data['candidate'],
-  //     data['sdpMid'],
-  //     data['sdpMLineIndex'],
-  //   ));
-  // }
-
   void dispose() {
     // Clean up the resources used by the peer connection
-    // localStream?.dispose();
     localRenderer.dispose();
     remoteRenderer.dispose();
-    // _peerConnection.close();
     _localStream?.dispose();
     pc?.close();
+  }
+}
+
+class WebRTCBloc2 extends Cubit<Offset> {
+  WebRTCBloc2() : super(const Offset(0, 0));
+
+  setPosition(Offset offset) {
+    emit(offset);
   }
 }
