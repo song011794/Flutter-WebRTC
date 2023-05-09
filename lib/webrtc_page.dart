@@ -19,8 +19,7 @@ class WebRTCPage extends StatefulWidget {
 
 class _WebRTCPageState extends State<WebRTCPage> {
   final GlobalKey _renderkey = GlobalKey();
-  final WebRTCBloc _bloc = WebRTCBloc();
-  final WebRTCBloc2 _bloc2 = WebRTCBloc2();
+  final WebRTCBloc _bloc = WebRTCBloc();  
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   double _x = 0;
   double _y = 0;
@@ -55,13 +54,13 @@ class _WebRTCPageState extends State<WebRTCPage> {
                       listener: (context, state) {
                         if (state == WebRTCState.error) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('An error occurred')));
+                             const SnackBar(content: Text('An error occurred')));
                         }
                       },
                       builder: (context, state) {
-                        print('Bloc Build 1');
+                        debugPrint('Bloc Build 1');
                         if (state == WebRTCState.connecting) {
-                          return Center(child: CircularProgressIndicator());
+                          return const Center(child: CircularProgressIndicator());
                         } else if (state == WebRTCState.remoteConnected) {
                           return RTCVideoView(
                             _bloc.remoteRenderer,
@@ -69,7 +68,7 @@ class _WebRTCPageState extends State<WebRTCPage> {
                                 .RTCVideoViewObjectFitCover,
                           );
                         } else {
-                          return Center(
+                          return const Center(
                               child: Text('Waiting for connection...'));
                         }
                       },
@@ -77,7 +76,7 @@ class _WebRTCPageState extends State<WebRTCPage> {
                     BlocBuilder<WebRTCBloc, WebRTCState>(
                         bloc: _bloc,
                         builder: (context, state) {
-                          print('Bloc Build 2');
+                          debugPrint('Bloc Build 2');
                           if (state == WebRTCState.remoteConnected) {
                             return Positioned(
                               left: _x,
@@ -146,7 +145,7 @@ class _WebRTCPageState extends State<WebRTCPage> {
                                   .RTCVideoViewObjectFitCover,
                             );
                           } else {
-                            return CircularProgressIndicator();
+                            return const CircularProgressIndicator();
                           }
                         })
                   ],
@@ -160,7 +159,7 @@ class _WebRTCPageState extends State<WebRTCPage> {
                       child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder()),
                     ),
@@ -172,126 +171,5 @@ class _WebRTCPageState extends State<WebRTCPage> {
     );
   }
 
-  Widget _buildConnectedUI() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(
-          flex: 2,
-          child: Stack(
-            children: [
-              RTCVideoView(
-                _bloc.remoteRenderer,
-                objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-              ),
-              // Animated
-              BlocBuilder<WebRTCBloc2, Offset>(
-                bloc: _bloc2,
-                builder: (context, state) {
-                  print('Bloc Build 2');
-                  final statusBarHeight =
-                      MediaQuery.of(context).viewPadding.top;
-
-                  return Positioned(
-                    // duration: const Duration(milliseconds: 500),
-                    // curve: Curves.fastOutSlowIn,
-                    left: _bloc.remoteRenderer.srcObject != null
-                        ? state.dx
-                        : null,
-                    top: _bloc.remoteRenderer.srcObject != null
-                        ? state.dy + statusBarHeight
-                        : null,
-                    // bottom: _bloc.remoteRenderer.srcObject != null ? 0 : null,
-                    // right: _bloc.remoteRenderer.srcObject != null ? 0 : null,
-
-                    width: _bloc.remoteRenderer.srcObject != null ? 150 : null,
-                    height: _bloc.remoteRenderer.srcObject != null ? 300 : null,
-                    child: Draggable(
-                      childWhenDragging: RTCVideoView(
-                        _bloc.localRenderer,
-                        objectFit:
-                            RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-                      ),
-                      // onDragUpdate: (details) {
-                      //   Future.delayed(Duration.zero, () {
-                      //     _bloc2.setPosition(details,);
-                      //   });
-                      // },
-                      // onDragEnd: (dragDetails) {
-                      //   Future.delayed(Duration.zero, () {
-                      //     _bloc2.setPosition(dragDetails.offset);
-                      //   });
-
-                      //   // setState(() {
-                      //   //   _x = dragDetails.globalPosition.dx;
-                      //   //   _y = dragDetails.globalPosition.dy;
-                      //   //   // _x = dragDetails.offset.dx;
-                      //   // if applicable, don't forget offsets like app/status bar
-                      //   //   // _y = dragDetails.offset.dy;
-                      //   // });
-                      // },
-                      feedback: RTCVideoView(
-                        _bloc.localRenderer,
-                        objectFit:
-                            RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-                      ),
-                      child: RTCVideoView(
-                        _bloc.localRenderer,
-                        objectFit:
-                            RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-                      ),
-                    ),
-                  );
-                },
-                // child: Positioned(
-                //   // duration: const Duration(milliseconds: 500),
-                //   // curve: Curves.fastOutSlowIn,
-                //   left: _bloc.remoteRenderer.srcObject != null ? _x : null,
-                //   top:  _bloc.remoteRenderer.srcObject != null ? _y : null,
-                //   // bottom: _bloc.remoteRenderer.srcObject != null ? 0 : null,
-                //   // right: _bloc.remoteRenderer.srcObject != null ? 0 : null,
-                //   width: _bloc.remoteRenderer.srcObject != null ? 150 : null,
-                //   height: _bloc.remoteRenderer.srcObject != null ? 300 : null,
-                //   child: Draggable(
-                //     onDragUpdate: (dragDetails) {
-                //       setState(() {
-                //         _x = dragDetails.globalPosition.dx;
-                //         _y = dragDetails.globalPosition.dy;
-                //         // _x = dragDetails.offset.dx;
-                //         // if applicable, don't forget offsets like app/status bar
-                //         // _y = dragDetails.offset.dy;
-                //       });
-                //     },
-                //     feedback: RTCVideoView(
-                //       _bloc.localRenderer,
-                //       objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-                //     ),
-                //     child: RTCVideoView(
-                //       _bloc.localRenderer,
-                //       objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-                //     ),
-                //   ),
-                // ),
-              )
-            ],
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Column(children: [
-            Expanded(flex: 2, child: ListView()),
-            Expanded(
-                child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder()),
-              ),
-            ))
-          ]),
-        )
-      ],
-    );
-  }
+  
 }

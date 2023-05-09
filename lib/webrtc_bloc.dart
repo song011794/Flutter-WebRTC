@@ -32,7 +32,7 @@ class WebRTCBloc extends Cubit<WebRTCState> {
         IO.OptionBuilder().setTransports(['websocket']).build());
 
     socket.onConnect((_) {
-      print('연결 완료!');
+      debugPrint('연결 완료!');
     });
 
     socket.on('joined', (data) {
@@ -85,7 +85,7 @@ class WebRTCBloc extends Cubit<WebRTCState> {
     _localStream = await Helper.openCamera(mediaConstraints);
 
     _localStream!.getTracks().forEach((track) {
-      print('localStream');
+      debugPrint('localStream');
       pc!.addTrack(track, _localStream!);
     });
 
@@ -98,7 +98,7 @@ class WebRTCBloc extends Cubit<WebRTCState> {
 
     pc!.onAddStream = (stream) {
       emit(WebRTCState.remoteConnecting);
-      print('remoteRenderer');
+      debugPrint('remoteRenderer');
       remoteRenderer.srcObject = stream;
       emit(WebRTCState.remoteConnected);
     };
@@ -107,26 +107,26 @@ class WebRTCBloc extends Cubit<WebRTCState> {
   }
 
   Future _sendOffer() async {
-    print('send offer');
+    debugPrint('send offer');
     var offer = await pc!.createOffer();
     pc!.setLocalDescription(offer);
     socket.emit('offer', jsonEncode(offer.toMap()));
   }
 
   Future _gotOffer(RTCSessionDescription offer) async {
-    print('got offer');
+    debugPrint('got offer');
     pc!.setRemoteDescription(offer);
   }
 
   Future _sendAnswer() async {
-    print('send answer');
+    debugPrint('send answer');
     var answer = await pc!.createAnswer();
     pc!.setLocalDescription(answer);
     socket.emit('answer', jsonEncode(answer.toMap()));
   }
 
   Future _gotAnswer(RTCSessionDescription answer) async {
-    print('got answer');
+    debugPrint('got answer');
     pc!.setRemoteDescription(answer);
   }
 
@@ -144,13 +144,5 @@ class WebRTCBloc extends Cubit<WebRTCState> {
     remoteRenderer.dispose();
     _localStream?.dispose();
     pc?.close();
-  }
-}
-
-class WebRTCBloc2 extends Cubit<Offset> {
-  WebRTCBloc2() : super(const Offset(0, 0));
-
-  setPosition(Offset offset) {
-    emit(offset);
   }
 }
