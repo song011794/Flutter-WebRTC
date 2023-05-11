@@ -1,19 +1,19 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-
-
 import 'package:webrtc/webrtc_page.dart';
 
+import 'bloc/socket_bloc.dart';
 
-
-void main() async{
-   HttpOverrides.global = MyHttpOverrides();
-   await dotenv.load(fileName: ".env");
-  runApp(const MyApp());
+void main() async {
+  HttpOverrides.global = MyHttpOverrides();
+  await dotenv.load(fileName: ".env");
+  runApp(BlocProvider(
+      create: (context) => SocketBloc(), lazy: false, child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(      
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -41,36 +41,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   void _incrementCounter() {
     // Navigator.push(
     //     context, MaterialPageRoute(builder: (context) => const Rtc()));
 
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => 
-         WebRTCPage()));
+        context, MaterialPageRoute(builder: (context) => WebRTCPage()));
   }
 
   @override
-  Widget build(BuildContext context) {  
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-     
         title: Text(widget.title),
       ),
       body: Center(
-      
         child: Column(
-   
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
@@ -79,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), 
+      ),
     );
   }
 }

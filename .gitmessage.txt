@@ -1,6 +1,6 @@
-refactor : 소스 정리 
+feature : Socket.IO Bloc 화
 
-1. 사용하지 않는 소스 삭제
+1. Socket.IO Bloc 화
 
 
 

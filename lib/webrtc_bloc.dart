@@ -6,14 +6,19 @@ import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-enum WebRTCState { initial, connecting, connected,remoteConnecting ,remoteConnected, error }
+enum WebRTCState {
+  initial,
+  connecting,
+  connected,
+  remoteConnecting,
+  remoteConnected,
+  error
+}
 
 class WebRTCBloc extends Cubit<WebRTCState> {
   WebRTCBloc() : super(WebRTCState.initial);
 
   late final IO.Socket socket;
-
-  // late RTCPeerConnection _peerConnection;
 
   final localRenderer = RTCVideoRenderer();
   final remoteRenderer = RTCVideoRenderer();
@@ -33,6 +38,17 @@ class WebRTCBloc extends Cubit<WebRTCState> {
 
     socket.onConnect((_) {
       debugPrint('연결 완료!');
+      socket.emit(
+          'message', {'type': 'nickName', 'room': 'dogRoom', 'payload': 'kim'});
+
+      Future.delayed(Duration(milliseconds: 500), () {
+        socket.emit('message',
+            {'type': 'newMessage', 'room': 'dogRoom', 'payload': '오예'});
+      });
+    });
+
+    socket.on('message', (data) {
+      print(data.toString());
     });
 
     socket.on('joined', (data) {
@@ -103,14 +119,15 @@ class WebRTCBloc extends Cubit<WebRTCState> {
       emit(WebRTCState.remoteConnected);
     };
 
-    socket.emit('join', {'room': '1234'});
+    socket.emit('join', {'room': 'dogRoom'});    
   }
 
   Future _sendOffer() async {
     debugPrint('send offer');
     var offer = await pc!.createOffer();
     pc!.setLocalDescription(offer);
-    socket.emit('offer', jsonEncode(offer.toMap()));
+    socket
+        .emit('offer', {'room': 'dogRoom', 'offerData': jsonEncode(offer.toMap())});
   }
 
   Future _gotOffer(RTCSessionDescription offer) async {
@@ -122,7 +139,8 @@ class WebRTCBloc extends Cubit<WebRTCState> {
     debugPrint('send answer');
     var answer = await pc!.createAnswer();
     pc!.setLocalDescription(answer);
-    socket.emit('answer', jsonEncode(answer.toMap()));
+    socket.emit(
+        'answer', {'room': 'dogRoom', 'answerData': jsonEncode(answer.toMap())});
   }
 
   Future _gotAnswer(RTCSessionDescription answer) async {
@@ -131,7 +149,7 @@ class WebRTCBloc extends Cubit<WebRTCState> {
   }
 
   Future _sendIce(RTCIceCandidate ice) async {
-    socket.emit('ice', jsonEncode(ice.toMap()));
+    socket.emit('ice', {'room': 'dogRoom', 'iceData': jsonEncode(ice.toMap())});
   }
 
   Future _gotIce(RTCIceCandidate ice) async {
