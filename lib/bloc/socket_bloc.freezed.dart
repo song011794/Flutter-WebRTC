@@ -26,10 +26,14 @@ mixin _$SocketEvent {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,10 +46,14 @@ mixin _$SocketEvent {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,10 +66,14 @@ mixin _$SocketEvent {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -76,10 +88,14 @@ mixin _$SocketEvent {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,10 +108,14 @@ mixin _$SocketEvent {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -108,10 +128,14 @@ mixin _$SocketEvent {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -181,10 +205,14 @@ class _$_SocketConnect implements _SocketConnect {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
     return connect();
   }
@@ -200,10 +228,14 @@ class _$_SocketConnect implements _SocketConnect {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
     return connect?.call();
   }
@@ -219,10 +251,14 @@ class _$_SocketConnect implements _SocketConnect {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
     if (connect != null) {
@@ -243,10 +279,14 @@ class _$_SocketConnect implements _SocketConnect {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
     return connect(this);
   }
@@ -262,10 +302,14 @@ class _$_SocketConnect implements _SocketConnect {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
     return connect?.call(this);
   }
@@ -281,10 +325,14 @@ class _$_SocketConnect implements _SocketConnect {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
     if (connect != null) {
@@ -344,10 +392,14 @@ class _$_SocketConnectingEvent implements _SocketConnectingEvent {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
     return connecting();
   }
@@ -363,10 +415,14 @@ class _$_SocketConnectingEvent implements _SocketConnectingEvent {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
     return connecting?.call();
   }
@@ -382,10 +438,14 @@ class _$_SocketConnectingEvent implements _SocketConnectingEvent {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
     if (connecting != null) {
@@ -406,10 +466,14 @@ class _$_SocketConnectingEvent implements _SocketConnectingEvent {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
     return connecting(this);
   }
@@ -425,10 +489,14 @@ class _$_SocketConnectingEvent implements _SocketConnectingEvent {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
     return connecting?.call(this);
   }
@@ -444,10 +512,14 @@ class _$_SocketConnectingEvent implements _SocketConnectingEvent {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
     if (connecting != null) {
@@ -507,10 +579,14 @@ class _$_SocketOnConnect implements _SocketOnConnect {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
     return onConnect();
   }
@@ -526,10 +602,14 @@ class _$_SocketOnConnect implements _SocketOnConnect {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
     return onConnect?.call();
   }
@@ -545,10 +625,14 @@ class _$_SocketOnConnect implements _SocketOnConnect {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
     if (onConnect != null) {
@@ -569,10 +653,14 @@ class _$_SocketOnConnect implements _SocketOnConnect {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
     return onConnect(this);
   }
@@ -588,10 +676,14 @@ class _$_SocketOnConnect implements _SocketOnConnect {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
     return onConnect?.call(this);
   }
@@ -607,10 +699,14 @@ class _$_SocketOnConnect implements _SocketOnConnect {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
     if (onConnect != null) {
@@ -671,10 +767,14 @@ class _$_SocketConnectErrorEvent implements _SocketConnectErrorEvent {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
     return onConnectError();
   }
@@ -690,10 +790,14 @@ class _$_SocketConnectErrorEvent implements _SocketConnectErrorEvent {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
     return onConnectError?.call();
   }
@@ -709,10 +813,14 @@ class _$_SocketConnectErrorEvent implements _SocketConnectErrorEvent {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
     if (onConnectError != null) {
@@ -733,10 +841,14 @@ class _$_SocketConnectErrorEvent implements _SocketConnectErrorEvent {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
     return onConnectError(this);
   }
@@ -752,10 +864,14 @@ class _$_SocketConnectErrorEvent implements _SocketConnectErrorEvent {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
     return onConnectError?.call(this);
   }
@@ -771,10 +887,14 @@ class _$_SocketConnectErrorEvent implements _SocketConnectErrorEvent {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
     if (onConnectError != null) {
@@ -837,10 +957,14 @@ class _$_SocketConnectTimeoutEvent implements _SocketConnectTimeoutEvent {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
     return onConnectTimeout();
   }
@@ -856,10 +980,14 @@ class _$_SocketConnectTimeoutEvent implements _SocketConnectTimeoutEvent {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
     return onConnectTimeout?.call();
   }
@@ -875,10 +1003,14 @@ class _$_SocketConnectTimeoutEvent implements _SocketConnectTimeoutEvent {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
     if (onConnectTimeout != null) {
@@ -899,10 +1031,14 @@ class _$_SocketConnectTimeoutEvent implements _SocketConnectTimeoutEvent {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
     return onConnectTimeout(this);
   }
@@ -918,10 +1054,14 @@ class _$_SocketConnectTimeoutEvent implements _SocketConnectTimeoutEvent {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
     return onConnectTimeout?.call(this);
   }
@@ -937,10 +1077,14 @@ class _$_SocketConnectTimeoutEvent implements _SocketConnectTimeoutEvent {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
     if (onConnectTimeout != null) {
@@ -1000,10 +1144,14 @@ class _$_SocketErrorEvent implements _SocketErrorEvent {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
     return onError();
   }
@@ -1019,10 +1167,14 @@ class _$_SocketErrorEvent implements _SocketErrorEvent {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
     return onError?.call();
   }
@@ -1038,10 +1190,14 @@ class _$_SocketErrorEvent implements _SocketErrorEvent {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
     if (onError != null) {
@@ -1062,10 +1218,14 @@ class _$_SocketErrorEvent implements _SocketErrorEvent {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
     return onError(this);
   }
@@ -1081,10 +1241,14 @@ class _$_SocketErrorEvent implements _SocketErrorEvent {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
     return onError?.call(this);
   }
@@ -1100,10 +1264,14 @@ class _$_SocketErrorEvent implements _SocketErrorEvent {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
     if (onError != null) {
@@ -1163,10 +1331,14 @@ class _$_SocketDisconnect implements _SocketDisconnect {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
     return disconnect();
   }
@@ -1182,10 +1354,14 @@ class _$_SocketDisconnect implements _SocketDisconnect {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
     return disconnect?.call();
   }
@@ -1201,10 +1377,14 @@ class _$_SocketDisconnect implements _SocketDisconnect {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
     if (disconnect != null) {
@@ -1225,10 +1405,14 @@ class _$_SocketDisconnect implements _SocketDisconnect {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
     return disconnect(this);
   }
@@ -1244,10 +1428,14 @@ class _$_SocketDisconnect implements _SocketDisconnect {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
     return disconnect?.call(this);
   }
@@ -1263,10 +1451,14 @@ class _$_SocketDisconnect implements _SocketDisconnect {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
     if (disconnect != null) {
@@ -1326,10 +1518,14 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
     return onDisconnect();
   }
@@ -1345,10 +1541,14 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
     return onDisconnect?.call();
   }
@@ -1364,10 +1564,14 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
     if (onDisconnect != null) {
@@ -1388,10 +1592,14 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
     return onDisconnect(this);
   }
@@ -1407,10 +1615,14 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
     return onDisconnect?.call(this);
   }
@@ -1426,10 +1638,14 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
     if (onDisconnect != null) {
@@ -1441,6 +1657,236 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
 
 abstract class _SocketOnDisconnect implements SocketEvent {
   const factory _SocketOnDisconnect() = _$_SocketOnDisconnect;
+}
+
+/// @nodoc
+abstract class _$$_SocketSendJoinEventCopyWith<$Res> {
+  factory _$$_SocketSendJoinEventCopyWith(_$_SocketSendJoinEvent value,
+          $Res Function(_$_SocketSendJoinEvent) then) =
+      __$$_SocketSendJoinEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String event, dynamic data});
+}
+
+/// @nodoc
+class __$$_SocketSendJoinEventCopyWithImpl<$Res>
+    extends _$SocketEventCopyWithImpl<$Res, _$_SocketSendJoinEvent>
+    implements _$$_SocketSendJoinEventCopyWith<$Res> {
+  __$$_SocketSendJoinEventCopyWithImpl(_$_SocketSendJoinEvent _value,
+      $Res Function(_$_SocketSendJoinEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+    Object? data = freezed,
+  }) {
+    return _then(_$_SocketSendJoinEvent(
+      null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as String,
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SocketSendJoinEvent implements _SocketSendJoinEvent {
+  const _$_SocketSendJoinEvent(this.event, [this.data]);
+
+  @override
+  final String event;
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'SocketEvent.onSendJoin(event: $event, data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SocketSendJoinEvent &&
+            (identical(other.event, event) || other.event == event) &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, event, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SocketSendJoinEventCopyWith<_$_SocketSendJoinEvent> get copyWith =>
+      __$$_SocketSendJoinEventCopyWithImpl<_$_SocketSendJoinEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connect,
+    required TResult Function() connecting,
+    required TResult Function() onConnect,
+    required TResult Function() onConnectError,
+    required TResult Function() onConnectTimeout,
+    required TResult Function() onError,
+    required TResult Function() disconnect,
+    required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
+    required TResult Function() onJoined,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
+  }) {
+    return onSendJoin(event, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? connect,
+    TResult? Function()? connecting,
+    TResult? Function()? onConnect,
+    TResult? Function()? onConnectError,
+    TResult? Function()? onConnectTimeout,
+    TResult? Function()? onError,
+    TResult? Function()? disconnect,
+    TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
+    TResult? Function()? onJoined,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
+  }) {
+    return onSendJoin?.call(event, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connect,
+    TResult Function()? connecting,
+    TResult Function()? onConnect,
+    TResult Function()? onConnectError,
+    TResult Function()? onConnectTimeout,
+    TResult Function()? onError,
+    TResult Function()? disconnect,
+    TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
+    TResult Function()? onJoined,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
+    required TResult orElse(),
+  }) {
+    if (onSendJoin != null) {
+      return onSendJoin(event, data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SocketConnect value) connect,
+    required TResult Function(_SocketConnectingEvent value) connecting,
+    required TResult Function(_SocketOnConnect value) onConnect,
+    required TResult Function(_SocketConnectErrorEvent value) onConnectError,
+    required TResult Function(_SocketConnectTimeoutEvent value)
+        onConnectTimeout,
+    required TResult Function(_SocketErrorEvent value) onError,
+    required TResult Function(_SocketDisconnect value) disconnect,
+    required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
+    required TResult Function(_SocketJoinedEvent value) onJoined,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
+  }) {
+    return onSendJoin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SocketConnect value)? connect,
+    TResult? Function(_SocketConnectingEvent value)? connecting,
+    TResult? Function(_SocketOnConnect value)? onConnect,
+    TResult? Function(_SocketConnectErrorEvent value)? onConnectError,
+    TResult? Function(_SocketConnectTimeoutEvent value)? onConnectTimeout,
+    TResult? Function(_SocketErrorEvent value)? onError,
+    TResult? Function(_SocketDisconnect value)? disconnect,
+    TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
+    TResult? Function(_SocketJoinedEvent value)? onJoined,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
+  }) {
+    return onSendJoin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SocketConnect value)? connect,
+    TResult Function(_SocketConnectingEvent value)? connecting,
+    TResult Function(_SocketOnConnect value)? onConnect,
+    TResult Function(_SocketConnectErrorEvent value)? onConnectError,
+    TResult Function(_SocketConnectTimeoutEvent value)? onConnectTimeout,
+    TResult Function(_SocketErrorEvent value)? onError,
+    TResult Function(_SocketDisconnect value)? disconnect,
+    TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
+    TResult Function(_SocketJoinedEvent value)? onJoined,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
+    required TResult orElse(),
+  }) {
+    if (onSendJoin != null) {
+      return onSendJoin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SocketSendJoinEvent implements SocketEvent {
+  const factory _SocketSendJoinEvent(final String event, [final dynamic data]) =
+      _$_SocketSendJoinEvent;
+
+  String get event;
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$_SocketSendJoinEventCopyWith<_$_SocketSendJoinEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1489,10 +1935,14 @@ class _$_SocketJoinedEvent implements _SocketJoinedEvent {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
     return onJoined();
   }
@@ -1508,10 +1958,14 @@ class _$_SocketJoinedEvent implements _SocketJoinedEvent {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
     return onJoined?.call();
   }
@@ -1527,10 +1981,14 @@ class _$_SocketJoinedEvent implements _SocketJoinedEvent {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
     if (onJoined != null) {
@@ -1551,10 +2009,14 @@ class _$_SocketJoinedEvent implements _SocketJoinedEvent {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
     return onJoined(this);
   }
@@ -1570,10 +2032,14 @@ class _$_SocketJoinedEvent implements _SocketJoinedEvent {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
     return onJoined?.call(this);
   }
@@ -1589,10 +2055,14 @@ class _$_SocketJoinedEvent implements _SocketJoinedEvent {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
     if (onJoined != null) {
@@ -1607,39 +2077,75 @@ abstract class _SocketJoinedEvent implements SocketEvent {
 }
 
 /// @nodoc
-abstract class _$$_SocketOfferEventCopyWith<$Res> {
-  factory _$$_SocketOfferEventCopyWith(
-          _$_SocketOfferEvent value, $Res Function(_$_SocketOfferEvent) then) =
-      __$$_SocketOfferEventCopyWithImpl<$Res>;
+abstract class _$$_SocketSendOfferEventCopyWith<$Res> {
+  factory _$$_SocketSendOfferEventCopyWith(_$_SocketSendOfferEvent value,
+          $Res Function(_$_SocketSendOfferEvent) then) =
+      __$$_SocketSendOfferEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String event, dynamic data});
 }
 
 /// @nodoc
-class __$$_SocketOfferEventCopyWithImpl<$Res>
-    extends _$SocketEventCopyWithImpl<$Res, _$_SocketOfferEvent>
-    implements _$$_SocketOfferEventCopyWith<$Res> {
-  __$$_SocketOfferEventCopyWithImpl(
-      _$_SocketOfferEvent _value, $Res Function(_$_SocketOfferEvent) _then)
+class __$$_SocketSendOfferEventCopyWithImpl<$Res>
+    extends _$SocketEventCopyWithImpl<$Res, _$_SocketSendOfferEvent>
+    implements _$$_SocketSendOfferEventCopyWith<$Res> {
+  __$$_SocketSendOfferEventCopyWithImpl(_$_SocketSendOfferEvent _value,
+      $Res Function(_$_SocketSendOfferEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+    Object? data = freezed,
+  }) {
+    return _then(_$_SocketSendOfferEvent(
+      null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as String,
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_SocketOfferEvent implements _SocketOfferEvent {
-  const _$_SocketOfferEvent();
+class _$_SocketSendOfferEvent implements _SocketSendOfferEvent {
+  const _$_SocketSendOfferEvent(this.event, [this.data]);
+
+  @override
+  final String event;
+  @override
+  final dynamic data;
 
   @override
   String toString() {
-    return 'SocketEvent.onOffer()';
+    return 'SocketEvent.onSendOffer(event: $event, data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SocketOfferEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$_SocketSendOfferEvent &&
+            (identical(other.event, event) || other.event == event) &&
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, event, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SocketSendOfferEventCopyWith<_$_SocketSendOfferEvent> get copyWith =>
+      __$$_SocketSendOfferEventCopyWithImpl<_$_SocketSendOfferEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1652,12 +2158,16 @@ class _$_SocketOfferEvent implements _SocketOfferEvent {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
-    return onOffer();
+    return onSendOffer(event, data);
   }
 
   @override
@@ -1671,12 +2181,16 @@ class _$_SocketOfferEvent implements _SocketOfferEvent {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
-    return onOffer?.call();
+    return onSendOffer?.call(event, data);
   }
 
   @override
@@ -1690,14 +2204,18 @@ class _$_SocketOfferEvent implements _SocketOfferEvent {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
-    if (onOffer != null) {
-      return onOffer();
+    if (onSendOffer != null) {
+      return onSendOffer(event, data);
     }
     return orElse();
   }
@@ -1714,12 +2232,16 @@ class _$_SocketOfferEvent implements _SocketOfferEvent {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
-    return onOffer(this);
+    return onSendOffer(this);
   }
 
   @override
@@ -1733,12 +2255,16 @@ class _$_SocketOfferEvent implements _SocketOfferEvent {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
-    return onOffer?.call(this);
+    return onSendOffer?.call(this);
   }
 
   @override
@@ -1752,53 +2278,64 @@ class _$_SocketOfferEvent implements _SocketOfferEvent {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
-    if (onOffer != null) {
-      return onOffer(this);
+    if (onSendOffer != null) {
+      return onSendOffer(this);
     }
     return orElse();
   }
 }
 
-abstract class _SocketOfferEvent implements SocketEvent {
-  const factory _SocketOfferEvent() = _$_SocketOfferEvent;
+abstract class _SocketSendOfferEvent implements SocketEvent {
+  const factory _SocketSendOfferEvent(final String event,
+      [final dynamic data]) = _$_SocketSendOfferEvent;
+
+  String get event;
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$_SocketSendOfferEventCopyWith<_$_SocketSendOfferEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SocketAnswerEventCopyWith<$Res> {
-  factory _$$_SocketAnswerEventCopyWith(_$_SocketAnswerEvent value,
-          $Res Function(_$_SocketAnswerEvent) then) =
-      __$$_SocketAnswerEventCopyWithImpl<$Res>;
+abstract class _$$_SocketGotOfferEventCopyWith<$Res> {
+  factory _$$_SocketGotOfferEventCopyWith(_$_SocketGotOfferEvent value,
+          $Res Function(_$_SocketGotOfferEvent) then) =
+      __$$_SocketGotOfferEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SocketAnswerEventCopyWithImpl<$Res>
-    extends _$SocketEventCopyWithImpl<$Res, _$_SocketAnswerEvent>
-    implements _$$_SocketAnswerEventCopyWith<$Res> {
-  __$$_SocketAnswerEventCopyWithImpl(
-      _$_SocketAnswerEvent _value, $Res Function(_$_SocketAnswerEvent) _then)
+class __$$_SocketGotOfferEventCopyWithImpl<$Res>
+    extends _$SocketEventCopyWithImpl<$Res, _$_SocketGotOfferEvent>
+    implements _$$_SocketGotOfferEventCopyWith<$Res> {
+  __$$_SocketGotOfferEventCopyWithImpl(_$_SocketGotOfferEvent _value,
+      $Res Function(_$_SocketGotOfferEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_SocketAnswerEvent implements _SocketAnswerEvent {
-  const _$_SocketAnswerEvent();
+class _$_SocketGotOfferEvent implements _SocketGotOfferEvent {
+  const _$_SocketGotOfferEvent();
 
   @override
   String toString() {
-    return 'SocketEvent.onAnswer()';
+    return 'SocketEvent.onGotOffer()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SocketAnswerEvent);
+        (other.runtimeType == runtimeType && other is _$_SocketGotOfferEvent);
   }
 
   @override
@@ -1815,12 +2352,16 @@ class _$_SocketAnswerEvent implements _SocketAnswerEvent {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
-    return onAnswer();
+    return onGotOffer();
   }
 
   @override
@@ -1834,12 +2375,16 @@ class _$_SocketAnswerEvent implements _SocketAnswerEvent {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
-    return onAnswer?.call();
+    return onGotOffer?.call();
   }
 
   @override
@@ -1853,14 +2398,18 @@ class _$_SocketAnswerEvent implements _SocketAnswerEvent {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
-    if (onAnswer != null) {
-      return onAnswer();
+    if (onGotOffer != null) {
+      return onGotOffer();
     }
     return orElse();
   }
@@ -1877,12 +2426,16 @@ class _$_SocketAnswerEvent implements _SocketAnswerEvent {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
-    return onAnswer(this);
+    return onGotOffer(this);
   }
 
   @override
@@ -1896,12 +2449,16 @@ class _$_SocketAnswerEvent implements _SocketAnswerEvent {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
-    return onAnswer?.call(this);
+    return onGotOffer?.call(this);
   }
 
   @override
@@ -1915,53 +2472,287 @@ class _$_SocketAnswerEvent implements _SocketAnswerEvent {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
-    if (onAnswer != null) {
-      return onAnswer(this);
+    if (onGotOffer != null) {
+      return onGotOffer(this);
     }
     return orElse();
   }
 }
 
-abstract class _SocketAnswerEvent implements SocketEvent {
-  const factory _SocketAnswerEvent() = _$_SocketAnswerEvent;
+abstract class _SocketGotOfferEvent implements SocketEvent {
+  const factory _SocketGotOfferEvent() = _$_SocketGotOfferEvent;
 }
 
 /// @nodoc
-abstract class _$$_SocketIceEventCopyWith<$Res> {
-  factory _$$_SocketIceEventCopyWith(
-          _$_SocketIceEvent value, $Res Function(_$_SocketIceEvent) then) =
-      __$$_SocketIceEventCopyWithImpl<$Res>;
+abstract class _$$_SocketSendAnswerEventCopyWith<$Res> {
+  factory _$$_SocketSendAnswerEventCopyWith(_$_SocketSendAnswerEvent value,
+          $Res Function(_$_SocketSendAnswerEvent) then) =
+      __$$_SocketSendAnswerEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String event, dynamic data});
 }
 
 /// @nodoc
-class __$$_SocketIceEventCopyWithImpl<$Res>
-    extends _$SocketEventCopyWithImpl<$Res, _$_SocketIceEvent>
-    implements _$$_SocketIceEventCopyWith<$Res> {
-  __$$_SocketIceEventCopyWithImpl(
-      _$_SocketIceEvent _value, $Res Function(_$_SocketIceEvent) _then)
+class __$$_SocketSendAnswerEventCopyWithImpl<$Res>
+    extends _$SocketEventCopyWithImpl<$Res, _$_SocketSendAnswerEvent>
+    implements _$$_SocketSendAnswerEventCopyWith<$Res> {
+  __$$_SocketSendAnswerEventCopyWithImpl(_$_SocketSendAnswerEvent _value,
+      $Res Function(_$_SocketSendAnswerEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+    Object? data = freezed,
+  }) {
+    return _then(_$_SocketSendAnswerEvent(
+      null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as String,
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_SocketIceEvent implements _SocketIceEvent {
-  const _$_SocketIceEvent();
+class _$_SocketSendAnswerEvent implements _SocketSendAnswerEvent {
+  const _$_SocketSendAnswerEvent(this.event, [this.data]);
+
+  @override
+  final String event;
+  @override
+  final dynamic data;
 
   @override
   String toString() {
-    return 'SocketEvent.onIce()';
+    return 'SocketEvent.onSendAnswer(event: $event, data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SocketIceEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$_SocketSendAnswerEvent &&
+            (identical(other.event, event) || other.event == event) &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, event, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SocketSendAnswerEventCopyWith<_$_SocketSendAnswerEvent> get copyWith =>
+      __$$_SocketSendAnswerEventCopyWithImpl<_$_SocketSendAnswerEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connect,
+    required TResult Function() connecting,
+    required TResult Function() onConnect,
+    required TResult Function() onConnectError,
+    required TResult Function() onConnectTimeout,
+    required TResult Function() onError,
+    required TResult Function() disconnect,
+    required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
+    required TResult Function() onJoined,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
+  }) {
+    return onSendAnswer(event, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? connect,
+    TResult? Function()? connecting,
+    TResult? Function()? onConnect,
+    TResult? Function()? onConnectError,
+    TResult? Function()? onConnectTimeout,
+    TResult? Function()? onError,
+    TResult? Function()? disconnect,
+    TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
+    TResult? Function()? onJoined,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
+  }) {
+    return onSendAnswer?.call(event, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connect,
+    TResult Function()? connecting,
+    TResult Function()? onConnect,
+    TResult Function()? onConnectError,
+    TResult Function()? onConnectTimeout,
+    TResult Function()? onError,
+    TResult Function()? disconnect,
+    TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
+    TResult Function()? onJoined,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
+    required TResult orElse(),
+  }) {
+    if (onSendAnswer != null) {
+      return onSendAnswer(event, data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SocketConnect value) connect,
+    required TResult Function(_SocketConnectingEvent value) connecting,
+    required TResult Function(_SocketOnConnect value) onConnect,
+    required TResult Function(_SocketConnectErrorEvent value) onConnectError,
+    required TResult Function(_SocketConnectTimeoutEvent value)
+        onConnectTimeout,
+    required TResult Function(_SocketErrorEvent value) onError,
+    required TResult Function(_SocketDisconnect value) disconnect,
+    required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
+    required TResult Function(_SocketJoinedEvent value) onJoined,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
+  }) {
+    return onSendAnswer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SocketConnect value)? connect,
+    TResult? Function(_SocketConnectingEvent value)? connecting,
+    TResult? Function(_SocketOnConnect value)? onConnect,
+    TResult? Function(_SocketConnectErrorEvent value)? onConnectError,
+    TResult? Function(_SocketConnectTimeoutEvent value)? onConnectTimeout,
+    TResult? Function(_SocketErrorEvent value)? onError,
+    TResult? Function(_SocketDisconnect value)? disconnect,
+    TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
+    TResult? Function(_SocketJoinedEvent value)? onJoined,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
+  }) {
+    return onSendAnswer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SocketConnect value)? connect,
+    TResult Function(_SocketConnectingEvent value)? connecting,
+    TResult Function(_SocketOnConnect value)? onConnect,
+    TResult Function(_SocketConnectErrorEvent value)? onConnectError,
+    TResult Function(_SocketConnectTimeoutEvent value)? onConnectTimeout,
+    TResult Function(_SocketErrorEvent value)? onError,
+    TResult Function(_SocketDisconnect value)? disconnect,
+    TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
+    TResult Function(_SocketJoinedEvent value)? onJoined,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
+    required TResult orElse(),
+  }) {
+    if (onSendAnswer != null) {
+      return onSendAnswer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SocketSendAnswerEvent implements SocketEvent {
+  const factory _SocketSendAnswerEvent(final String event,
+      [final dynamic data]) = _$_SocketSendAnswerEvent;
+
+  String get event;
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$_SocketSendAnswerEventCopyWith<_$_SocketSendAnswerEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SocketGotAnswerEventCopyWith<$Res> {
+  factory _$$_SocketGotAnswerEventCopyWith(_$_SocketGotAnswerEvent value,
+          $Res Function(_$_SocketGotAnswerEvent) then) =
+      __$$_SocketGotAnswerEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SocketGotAnswerEventCopyWithImpl<$Res>
+    extends _$SocketEventCopyWithImpl<$Res, _$_SocketGotAnswerEvent>
+    implements _$$_SocketGotAnswerEventCopyWith<$Res> {
+  __$$_SocketGotAnswerEventCopyWithImpl(_$_SocketGotAnswerEvent _value,
+      $Res Function(_$_SocketGotAnswerEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SocketGotAnswerEvent implements _SocketGotAnswerEvent {
+  const _$_SocketGotAnswerEvent();
+
+  @override
+  String toString() {
+    return 'SocketEvent.onGotAnswer()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SocketGotAnswerEvent);
   }
 
   @override
@@ -1978,12 +2769,16 @@ class _$_SocketIceEvent implements _SocketIceEvent {
     required TResult Function() onError,
     required TResult Function() disconnect,
     required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
     required TResult Function() onJoined,
-    required TResult Function() onOffer,
-    required TResult Function() onAnswer,
-    required TResult Function() onIce,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
   }) {
-    return onIce();
+    return onGotAnswer();
   }
 
   @override
@@ -1997,12 +2792,16 @@ class _$_SocketIceEvent implements _SocketIceEvent {
     TResult? Function()? onError,
     TResult? Function()? disconnect,
     TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
     TResult? Function()? onJoined,
-    TResult? Function()? onOffer,
-    TResult? Function()? onAnswer,
-    TResult? Function()? onIce,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
   }) {
-    return onIce?.call();
+    return onGotAnswer?.call();
   }
 
   @override
@@ -2016,14 +2815,18 @@ class _$_SocketIceEvent implements _SocketIceEvent {
     TResult Function()? onError,
     TResult Function()? disconnect,
     TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
     TResult Function()? onJoined,
-    TResult Function()? onOffer,
-    TResult Function()? onAnswer,
-    TResult Function()? onIce,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
     required TResult orElse(),
   }) {
-    if (onIce != null) {
-      return onIce();
+    if (onGotAnswer != null) {
+      return onGotAnswer();
     }
     return orElse();
   }
@@ -2040,12 +2843,16 @@ class _$_SocketIceEvent implements _SocketIceEvent {
     required TResult Function(_SocketErrorEvent value) onError,
     required TResult Function(_SocketDisconnect value) disconnect,
     required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
     required TResult Function(_SocketJoinedEvent value) onJoined,
-    required TResult Function(_SocketOfferEvent value) onOffer,
-    required TResult Function(_SocketAnswerEvent value) onAnswer,
-    required TResult Function(_SocketIceEvent value) onIce,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
   }) {
-    return onIce(this);
+    return onGotAnswer(this);
   }
 
   @override
@@ -2059,12 +2866,16 @@ class _$_SocketIceEvent implements _SocketIceEvent {
     TResult? Function(_SocketErrorEvent value)? onError,
     TResult? Function(_SocketDisconnect value)? disconnect,
     TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult? Function(_SocketJoinedEvent value)? onJoined,
-    TResult? Function(_SocketOfferEvent value)? onOffer,
-    TResult? Function(_SocketAnswerEvent value)? onAnswer,
-    TResult? Function(_SocketIceEvent value)? onIce,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
   }) {
-    return onIce?.call(this);
+    return onGotAnswer?.call(this);
   }
 
   @override
@@ -2078,21 +2889,442 @@ class _$_SocketIceEvent implements _SocketIceEvent {
     TResult Function(_SocketErrorEvent value)? onError,
     TResult Function(_SocketDisconnect value)? disconnect,
     TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
     TResult Function(_SocketJoinedEvent value)? onJoined,
-    TResult Function(_SocketOfferEvent value)? onOffer,
-    TResult Function(_SocketAnswerEvent value)? onAnswer,
-    TResult Function(_SocketIceEvent value)? onIce,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
     required TResult orElse(),
   }) {
-    if (onIce != null) {
-      return onIce(this);
+    if (onGotAnswer != null) {
+      return onGotAnswer(this);
     }
     return orElse();
   }
 }
 
-abstract class _SocketIceEvent implements SocketEvent {
-  const factory _SocketIceEvent() = _$_SocketIceEvent;
+abstract class _SocketGotAnswerEvent implements SocketEvent {
+  const factory _SocketGotAnswerEvent() = _$_SocketGotAnswerEvent;
+}
+
+/// @nodoc
+abstract class _$$_SocketSendIceEventCopyWith<$Res> {
+  factory _$$_SocketSendIceEventCopyWith(_$_SocketSendIceEvent value,
+          $Res Function(_$_SocketSendIceEvent) then) =
+      __$$_SocketSendIceEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String event, dynamic data});
+}
+
+/// @nodoc
+class __$$_SocketSendIceEventCopyWithImpl<$Res>
+    extends _$SocketEventCopyWithImpl<$Res, _$_SocketSendIceEvent>
+    implements _$$_SocketSendIceEventCopyWith<$Res> {
+  __$$_SocketSendIceEventCopyWithImpl(
+      _$_SocketSendIceEvent _value, $Res Function(_$_SocketSendIceEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? event = null,
+    Object? data = freezed,
+  }) {
+    return _then(_$_SocketSendIceEvent(
+      null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as String,
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SocketSendIceEvent implements _SocketSendIceEvent {
+  const _$_SocketSendIceEvent(this.event, [this.data]);
+
+  @override
+  final String event;
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'SocketEvent.onSendIce(event: $event, data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SocketSendIceEvent &&
+            (identical(other.event, event) || other.event == event) &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, event, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SocketSendIceEventCopyWith<_$_SocketSendIceEvent> get copyWith =>
+      __$$_SocketSendIceEventCopyWithImpl<_$_SocketSendIceEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connect,
+    required TResult Function() connecting,
+    required TResult Function() onConnect,
+    required TResult Function() onConnectError,
+    required TResult Function() onConnectTimeout,
+    required TResult Function() onError,
+    required TResult Function() disconnect,
+    required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
+    required TResult Function() onJoined,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
+  }) {
+    return onSendIce(event, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? connect,
+    TResult? Function()? connecting,
+    TResult? Function()? onConnect,
+    TResult? Function()? onConnectError,
+    TResult? Function()? onConnectTimeout,
+    TResult? Function()? onError,
+    TResult? Function()? disconnect,
+    TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
+    TResult? Function()? onJoined,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
+  }) {
+    return onSendIce?.call(event, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connect,
+    TResult Function()? connecting,
+    TResult Function()? onConnect,
+    TResult Function()? onConnectError,
+    TResult Function()? onConnectTimeout,
+    TResult Function()? onError,
+    TResult Function()? disconnect,
+    TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
+    TResult Function()? onJoined,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
+    required TResult orElse(),
+  }) {
+    if (onSendIce != null) {
+      return onSendIce(event, data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SocketConnect value) connect,
+    required TResult Function(_SocketConnectingEvent value) connecting,
+    required TResult Function(_SocketOnConnect value) onConnect,
+    required TResult Function(_SocketConnectErrorEvent value) onConnectError,
+    required TResult Function(_SocketConnectTimeoutEvent value)
+        onConnectTimeout,
+    required TResult Function(_SocketErrorEvent value) onError,
+    required TResult Function(_SocketDisconnect value) disconnect,
+    required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
+    required TResult Function(_SocketJoinedEvent value) onJoined,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
+  }) {
+    return onSendIce(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SocketConnect value)? connect,
+    TResult? Function(_SocketConnectingEvent value)? connecting,
+    TResult? Function(_SocketOnConnect value)? onConnect,
+    TResult? Function(_SocketConnectErrorEvent value)? onConnectError,
+    TResult? Function(_SocketConnectTimeoutEvent value)? onConnectTimeout,
+    TResult? Function(_SocketErrorEvent value)? onError,
+    TResult? Function(_SocketDisconnect value)? disconnect,
+    TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
+    TResult? Function(_SocketJoinedEvent value)? onJoined,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
+  }) {
+    return onSendIce?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SocketConnect value)? connect,
+    TResult Function(_SocketConnectingEvent value)? connecting,
+    TResult Function(_SocketOnConnect value)? onConnect,
+    TResult Function(_SocketConnectErrorEvent value)? onConnectError,
+    TResult Function(_SocketConnectTimeoutEvent value)? onConnectTimeout,
+    TResult Function(_SocketErrorEvent value)? onError,
+    TResult Function(_SocketDisconnect value)? disconnect,
+    TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
+    TResult Function(_SocketJoinedEvent value)? onJoined,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
+    required TResult orElse(),
+  }) {
+    if (onSendIce != null) {
+      return onSendIce(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SocketSendIceEvent implements SocketEvent {
+  const factory _SocketSendIceEvent(final String event, [final dynamic data]) =
+      _$_SocketSendIceEvent;
+
+  String get event;
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$_SocketSendIceEventCopyWith<_$_SocketSendIceEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SocketGotIceEventCopyWith<$Res> {
+  factory _$$_SocketGotIceEventCopyWith(_$_SocketGotIceEvent value,
+          $Res Function(_$_SocketGotIceEvent) then) =
+      __$$_SocketGotIceEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SocketGotIceEventCopyWithImpl<$Res>
+    extends _$SocketEventCopyWithImpl<$Res, _$_SocketGotIceEvent>
+    implements _$$_SocketGotIceEventCopyWith<$Res> {
+  __$$_SocketGotIceEventCopyWithImpl(
+      _$_SocketGotIceEvent _value, $Res Function(_$_SocketGotIceEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SocketGotIceEvent implements _SocketGotIceEvent {
+  const _$_SocketGotIceEvent();
+
+  @override
+  String toString() {
+    return 'SocketEvent.onGotIce()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SocketGotIceEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connect,
+    required TResult Function() connecting,
+    required TResult Function() onConnect,
+    required TResult Function() onConnectError,
+    required TResult Function() onConnectTimeout,
+    required TResult Function() onError,
+    required TResult Function() disconnect,
+    required TResult Function() onDisconnect,
+    required TResult Function(String event, dynamic data) onSendJoin,
+    required TResult Function() onJoined,
+    required TResult Function(String event, dynamic data) onSendOffer,
+    required TResult Function() onGotOffer,
+    required TResult Function(String event, dynamic data) onSendAnswer,
+    required TResult Function() onGotAnswer,
+    required TResult Function(String event, dynamic data) onSendIce,
+    required TResult Function() onGotIce,
+  }) {
+    return onGotIce();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? connect,
+    TResult? Function()? connecting,
+    TResult? Function()? onConnect,
+    TResult? Function()? onConnectError,
+    TResult? Function()? onConnectTimeout,
+    TResult? Function()? onError,
+    TResult? Function()? disconnect,
+    TResult? Function()? onDisconnect,
+    TResult? Function(String event, dynamic data)? onSendJoin,
+    TResult? Function()? onJoined,
+    TResult? Function(String event, dynamic data)? onSendOffer,
+    TResult? Function()? onGotOffer,
+    TResult? Function(String event, dynamic data)? onSendAnswer,
+    TResult? Function()? onGotAnswer,
+    TResult? Function(String event, dynamic data)? onSendIce,
+    TResult? Function()? onGotIce,
+  }) {
+    return onGotIce?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connect,
+    TResult Function()? connecting,
+    TResult Function()? onConnect,
+    TResult Function()? onConnectError,
+    TResult Function()? onConnectTimeout,
+    TResult Function()? onError,
+    TResult Function()? disconnect,
+    TResult Function()? onDisconnect,
+    TResult Function(String event, dynamic data)? onSendJoin,
+    TResult Function()? onJoined,
+    TResult Function(String event, dynamic data)? onSendOffer,
+    TResult Function()? onGotOffer,
+    TResult Function(String event, dynamic data)? onSendAnswer,
+    TResult Function()? onGotAnswer,
+    TResult Function(String event, dynamic data)? onSendIce,
+    TResult Function()? onGotIce,
+    required TResult orElse(),
+  }) {
+    if (onGotIce != null) {
+      return onGotIce();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SocketConnect value) connect,
+    required TResult Function(_SocketConnectingEvent value) connecting,
+    required TResult Function(_SocketOnConnect value) onConnect,
+    required TResult Function(_SocketConnectErrorEvent value) onConnectError,
+    required TResult Function(_SocketConnectTimeoutEvent value)
+        onConnectTimeout,
+    required TResult Function(_SocketErrorEvent value) onError,
+    required TResult Function(_SocketDisconnect value) disconnect,
+    required TResult Function(_SocketOnDisconnect value) onDisconnect,
+    required TResult Function(_SocketSendJoinEvent value) onSendJoin,
+    required TResult Function(_SocketJoinedEvent value) onJoined,
+    required TResult Function(_SocketSendOfferEvent value) onSendOffer,
+    required TResult Function(_SocketGotOfferEvent value) onGotOffer,
+    required TResult Function(_SocketSendAnswerEvent value) onSendAnswer,
+    required TResult Function(_SocketGotAnswerEvent value) onGotAnswer,
+    required TResult Function(_SocketSendIceEvent value) onSendIce,
+    required TResult Function(_SocketGotIceEvent value) onGotIce,
+  }) {
+    return onGotIce(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SocketConnect value)? connect,
+    TResult? Function(_SocketConnectingEvent value)? connecting,
+    TResult? Function(_SocketOnConnect value)? onConnect,
+    TResult? Function(_SocketConnectErrorEvent value)? onConnectError,
+    TResult? Function(_SocketConnectTimeoutEvent value)? onConnectTimeout,
+    TResult? Function(_SocketErrorEvent value)? onError,
+    TResult? Function(_SocketDisconnect value)? disconnect,
+    TResult? Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult? Function(_SocketSendJoinEvent value)? onSendJoin,
+    TResult? Function(_SocketJoinedEvent value)? onJoined,
+    TResult? Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult? Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult? Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult? Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult? Function(_SocketSendIceEvent value)? onSendIce,
+    TResult? Function(_SocketGotIceEvent value)? onGotIce,
+  }) {
+    return onGotIce?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SocketConnect value)? connect,
+    TResult Function(_SocketConnectingEvent value)? connecting,
+    TResult Function(_SocketOnConnect value)? onConnect,
+    TResult Function(_SocketConnectErrorEvent value)? onConnectError,
+    TResult Function(_SocketConnectTimeoutEvent value)? onConnectTimeout,
+    TResult Function(_SocketErrorEvent value)? onError,
+    TResult Function(_SocketDisconnect value)? disconnect,
+    TResult Function(_SocketOnDisconnect value)? onDisconnect,
+    TResult Function(_SocketSendJoinEvent value)? onSendJoin,
+    TResult Function(_SocketJoinedEvent value)? onJoined,
+    TResult Function(_SocketSendOfferEvent value)? onSendOffer,
+    TResult Function(_SocketGotOfferEvent value)? onGotOffer,
+    TResult Function(_SocketSendAnswerEvent value)? onSendAnswer,
+    TResult Function(_SocketGotAnswerEvent value)? onGotAnswer,
+    TResult Function(_SocketSendIceEvent value)? onSendIce,
+    TResult Function(_SocketGotIceEvent value)? onGotIce,
+    required TResult orElse(),
+  }) {
+    if (onGotIce != null) {
+      return onGotIce(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SocketGotIceEvent implements SocketEvent {
+  const factory _SocketGotIceEvent() = _$_SocketGotIceEvent;
 }
 
 /// @nodoc

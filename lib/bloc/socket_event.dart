@@ -11,8 +11,15 @@ class SocketEvent with _$SocketEvent {
   const factory SocketEvent.disconnect() = _SocketDisconnect;
   const factory SocketEvent.onDisconnect() = _SocketOnDisconnect;
 
+const factory SocketEvent.onSendJoin(String event, [dynamic data]) = _SocketSendJoinEvent;
   const factory SocketEvent.onJoined() = _SocketJoinedEvent;
-  const factory SocketEvent.onOffer() = _SocketOfferEvent;
-  const factory SocketEvent.onAnswer() = _SocketAnswerEvent;
-  const factory SocketEvent.onIce() = _SocketIceEvent;
+  const factory SocketEvent.onSendOffer(String event, [dynamic data]) =
+      _SocketSendOfferEvent;
+  const factory SocketEvent.onGotOffer() = _SocketGotOfferEvent;
+  const factory SocketEvent.onSendAnswer(String event, [dynamic data]) =
+      _SocketSendAnswerEvent;
+  const factory SocketEvent.onGotAnswer() = _SocketGotAnswerEvent;
+  const factory SocketEvent.onSendIce(String event, [dynamic data]) =
+      _SocketSendIceEvent;
+  const factory SocketEvent.onGotIce() = _SocketGotIceEvent;
 }

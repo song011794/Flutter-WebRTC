@@ -25,9 +25,9 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
     _socket.onError((data) => add(const _SocketErrorEvent()));
 
     _socket.on('joined', (data) => add(const _SocketJoinedEvent()));
-    _socket.on('offer', (data) => add(const _SocketOfferEvent()));
-    _socket.on('answer', (data) => add(const _SocketAnswerEvent()));
-    _socket.on('ice', (data) => add(const _SocketIceEvent()));
+    _socket.on('offer', (data) => add(const _SocketGotOfferEvent()));
+    _socket.on('answer', (data) => add(const _SocketGotAnswerEvent()));
+    _socket.on('ice', (data) => add(const _SocketGotIceEvent()));
 
     // User events
     on<_SocketConnect>((event, emit) {
@@ -46,31 +46,56 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
       emit(SocketState.connected(_socket.id!));
     });
     on<_SocketConnectErrorEvent>((event, emit) {
+      debugPrint('연결 실패!');
       emit(SocketState.connected("Connection Error"));
     });
     on<_SocketConnectTimeoutEvent>((event, emit) {
+      debugPrint('연결 타임아웃!');
       emit(SocketState.connected("Connection timeout"));
     });
     on<_SocketOnDisconnect>((event, emit) {
       emit(SocketState.disconnected());
     });
     on<_SocketErrorEvent>((event, emit) {
+      debugPrint('연결 실패!');
       emit(SocketState.connected("ErrorEvent"));
+    });
+
+    on<_SocketSendJoinEvent>((event, emit) {
+      _socket.emit(event.event, event.data);
+
+      emit(SocketState.connected("JoinedEvent"));
     });
 
     on<_SocketJoinedEvent>((event, emit) {
       emit(SocketState.connected("JoinedEvent"));
-      
     });
-    on<_SocketOfferEvent>((event, emit) {
+
+    on<_SocketSendOfferEvent>((event, emit) {
+      _socket.emit(event.event, event.data);
       emit(SocketState.connected("OfferEvent"));
     });
-    on<_SocketAnswerEvent>((event, emit) {
+    on<_SocketGotOfferEvent>((event, emit) {
+      emit(SocketState.connected("OfferEvent"));
+    });
+
+    on<_SocketSendAnswerEvent>((event, emit) {
+      _socket.emit(event.event, event.data);
       emit(SocketState.connected("AnswerEvent"));
     });
-    on<_SocketIceEvent>((event, emit) {
+    on<_SocketGotAnswerEvent>((event, emit) {
+      emit(SocketState.connected("AnswerEvent"));
+    });
+
+    on<_SocketSendIceEvent>((event, emit) {
+      _socket.emit(event.event, event.data);
       emit(SocketState.connected("IceEvent"));
     });
+    on<_SocketGotIceEvent>((event, emit) {
+      emit(SocketState.connected("IceEvent"));
+    });
+
+    add(const _SocketConnect());
   }
   @override
   Future<void> close() {

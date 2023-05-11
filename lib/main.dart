@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:webrtc/bloc/web_rtc_bloc.dart';
+import 'package:webrtc/web_rtc_page.dart';
 
 import 'package:webrtc/webrtc_page.dart';
 
@@ -12,8 +14,12 @@ import 'bloc/socket_bloc.dart';
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
   await dotenv.load(fileName: ".env");
-  runApp(BlocProvider(
-      create: (context) => SocketBloc(), lazy: false, child: const MyApp()));
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider<SocketBloc>(
+      lazy: false,
+      create: (BuildContext context) => SocketBloc(),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -43,10 +49,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     // Navigator.push(
-    //     context, MaterialPageRoute(builder: (context) => const Rtc()));
+    //     context, MaterialPageRoute(builder: (context) => WebRTCPage()));
 
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => WebRTCPage()));
+        context,
+        MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                create: (context) => WebRTCBloc(context.read<SocketBloc>()),
+                child: WebRTCPage2())));
   }
 
   @override
@@ -55,16 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
-      ),
+      body: Container(),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
