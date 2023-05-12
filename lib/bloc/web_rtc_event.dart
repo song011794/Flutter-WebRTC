@@ -9,9 +9,9 @@ class WebRtcEvent with _$WebRtcEvent {
   const factory WebRtcEvent.remoteConnecting() = _WebRtcRemoteConnecting; 
 
 
-  const factory WebRtcEvent.sendOffer(String room) = _WebRtcSendOffer; 
+  // const factory WebRtcEvent.sendOffer(String room) = _WebRtcSendOffer; 
 
-  const factory WebRtcEvent.gotAnswer(data) = _WebRtcGotAnswer;
+  // const factory WebRtcEvent.gotAnswer(data) = _WebRtcGotAnswer;
 
-  const factory WebRtcEvent.gotIce(data) = _WebRtcGotIce;
+  // const factory WebRtcEvent.gotIce(data) = _WebRtcGotIce;
 }

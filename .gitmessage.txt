@@ -1,6 +1,6 @@
-fix : socket.io 로직 버그 수정 및 정리
+refactor : UI 부분 리펙토링
 
-1. socket.io 로직 버그 수정 및 정리
+1. Bloc을 사용해서 소스 간략화
 
 
 

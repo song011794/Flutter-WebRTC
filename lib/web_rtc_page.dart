@@ -47,6 +47,18 @@ class _WebRTCPageState extends State<WebRTCPage2> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
+    Widget onlyLocalRender() {
+      return BlocBuilder<WebRTCBloc, WebRtcState>(
+          bloc: _webRTCBloc,
+          builder: (context, state) {
+            return state.when(
+                initial: () => Text('준비 중'),
+                ready: () => RTCVideoView(_webRTCBloc.localRenderer,
+                    objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+                    filterQuality: FilterQuality.medium));
+          });
+    }
+
     return Scaffold(
       body: Column(
         children: [
@@ -94,184 +106,21 @@ class _WebRTCPageState extends State<WebRTCPage2> {
                     timeout: () => debugPrint('timeout'));
               },
               builder: (context, state) {
-                BlocBuilder<WebRTCBloc, WebRtcState>(
-                  bloc: _webRTCBloc,
-                  builder: (context, rtcState) {
-                    return Container();
-                    // rtcState.when(initial: initial, connected: connected, connecting: connecting, Error: Error)
-                  },
-                );
-
-                return RTCVideoView(_webRTCBloc.localRenderer,
-                    objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-                    filterQuality: FilterQuality.medium);
+                return state.when(
+                    initial: onlyLocalRender,
+                    connected: onlyLocalRender,
+                    disconnected: onlyLocalRender,
+                    receiveJoined: onlyLocalRender,
+                    receiveOffer: (data) => onlyLocalRender(),
+                    receiveAnswer: (data) => Text(''),
+                    receiveIce: (data) => Text(''),
+                    error: onlyLocalRender,
+                    timeout: onlyLocalRender);             
               },
             ),
           ),
         ],
       ),
     );
-
-    // return Column(
-    //   children: [
-    //     Expanded(
-    //       key: _renderkey,
-    //       child: Stack(
-    //         children: [
-    //           // BlocConsumer<SocketBloc, SocketState>(
-    //           //     bloc: context.read<SocketBloc>(),
-    //           //     listener: (context, state) {
-    //           //       state.when(initial: () {
-    //           //         print('initial');
-    //           //       }, connected: (type, data) {
-    //           //         print(
-    //           //             'connected type : $type, data : ${data.toString()}');
-
-    //           //         switch (type) {
-    //           //           case 'JoinedEvent':
-    //           //             // on('joined') => sendOffer
-    //           //             context
-    //           //                 .read<WebRTCBloc>()
-    //           //                 .add(WebRtcEvent.sendOffer(widget.roomId));
-    //           //             break;
-
-    //           //           case 'GotOfferEvent':
-    //           //             // on('offer') => gotOffer, sendAnswer
-    //           //             context
-    //           //                 .read<WebRTCBloc>()
-    //           //                 .add(WebRtcEvent.gotOffer(widget.roomId, data));
-    //           //             break;
-
-    //           //           case 'GotAsnwerEvent':
-    //           //             // on('answer') => gorAnswer
-    //           //             context
-    //           //                 .read<WebRTCBloc>()
-    //           //                 .add(WebRtcEvent.gotAnswer(data));
-    //           //             break;
-
-    //           //           case 'GotIceEvent':
-    //           //             // on('ice') => gotIce
-    //           //             context
-    //           //                 .read<WebRTCBloc>()
-    //           //                 .add(WebRtcEvent.gotIce(data));
-    //           //             break;
-    //           //         }
-    //           //       }, disconnected: () {
-    //           //         print('disconneced');
-    //           //       });
-    //           //     },
-    //           //     builder: (context, socketState) {
-    //           //       return socketState.when(
-    //           //         initial: () => const Center(
-    //           //             child: Text('Waiting for connection...')),
-    //           //         connected: (type, data) =>
-    //           //             BlocBuilder<WebRTCBloc, WebRtcState>(
-    //           //           bloc: context.read<WebRTCBloc>(),
-    //           //           builder: (context, webRtcstate) {
-    //           //             return webRtcstate.when(
-    //           //               initial: () => const Center(
-    //           //                   child: Text('Waiting for connection...')),
-    //           //               connected: (type) {
-    //           //                 final RenderBox renderBox =
-    //           //                     _renderkey.currentContext!.findRenderObject()
-    //           //                         as RenderBox;
-    //           //                 switch (type) {
-    //           //                   case 'local':
-    //           //                     return RTCVideoView(
-    //           //                         context.read<WebRTCBloc>().localRenderer,
-    //           //                         objectFit: RTCVideoViewObjectFit
-    //           //                             .RTCVideoViewObjectFitCover,
-    //           //                         filterQuality: FilterQuality.medium);
-
-    //           //                   case 'remote':
-    //           //                     return Positioned(
-    //           //                       left: _x < 0
-    //           //                           ? size.width - localRenderSizeWidth
-    //           //                           : _x,
-    //           //                       top: _y < 0
-    //           //                           ? renderBox.size.height -
-    //           //                               localRenderSizeHeight
-    //           //                           : _y,
-    //           //                       child: Draggable(
-    //           //                         onDragEnd: (dragDetails) {
-    //           //                           setState(() {
-    //           //                             size.width;
-    //           //                             size.height;
-
-    //           //                             // 왼쪽으로 넘어갈 경우
-    //           //                             if (dragDetails.offset.dx < 0) {
-    //           //                               _x = 0;
-    //           //                             } else {
-    //           //                               // 오른쪽으로 넘어갈 경우
-    //           //                               if (size.width -
-    //           //                                       localRenderSizeWidth <
-    //           //                                   dragDetails.offset.dx) {
-    //           //                                 _x = size.width -
-    //           //                                     localRenderSizeWidth;
-    //           //                               } else {
-    //           //                                 _x = dragDetails.offset.dx;
-    //           //                               }
-    //           //                             }
-
-    //           //                             // 위쪽으로 넘어갈 경우
-    //           //                             if (dragDetails.offset.dy < 0) {
-    //           //                               _y = 0;
-    //           //                             } else {
-    //           //                               // 아래쪽으로 넘어갈 경우
-    //           //                               if (renderBox.size.height -
-    //           //                                       localRenderSizeHeight <
-    //           //                                   dragDetails.offset.dy) {
-    //           //                                 _y = renderBox.size.height -
-    //           //                                     localRenderSizeHeight;
-    //           //                               } else {
-    //           //                                 _y = dragDetails.offset.dy;
-    //           //                               }
-    //           //                             }
-    //           //                           });
-    //           //                         },
-    //           //                         feedback: SizedBox(
-    //           //                           width: localRenderSizeWidth,
-    //           //                           height: localRenderSizeHeight,
-    //           //                           child: RTCVideoView(
-    //           //                               context
-    //           //                                   .read<WebRTCBloc>()
-    //           //                                   .localRenderer,
-    //           //                               objectFit: RTCVideoViewObjectFit
-    //           //                                   .RTCVideoViewObjectFitCover,
-    //           //                               filterQuality:
-    //           //                                   FilterQuality.medium),
-    //           //                         ),
-    //           //                         child: SizedBox(
-    //           //                           width: localRenderSizeWidth,
-    //           //                           height: localRenderSizeHeight,
-    //           //                           child: RTCVideoView(
-    //           //                               context
-    //           //                                   .read<WebRTCBloc>()
-    //           //                                   .localRenderer,
-    //           //                               objectFit: RTCVideoViewObjectFit
-    //           //                                   .RTCVideoViewObjectFitCover,
-    //           //                               filterQuality:
-    //           //                                   FilterQuality.medium),
-    //           //                         ),
-    //           //                       ),
-    //           //                     );
-    //           //                   default:
-    //           //                     return Container();
-    //           //                 }
-    //           //               },
-    //           //               connecting: (type) =>
-    //           //                   const CircularProgressIndicator(),
-    //           //               Error: () => const Center(child: Text('Error')),
-    //           //             );
-    //           //           },
-    //           //         ),
-    //           //         disconnected: () => Text('cc'),
-    //           //       );
-    //           //     }),
-    //         ],
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 }
