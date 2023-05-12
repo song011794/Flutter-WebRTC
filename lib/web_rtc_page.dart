@@ -106,16 +106,16 @@ class _WebRTCPageState extends State<WebRTCPage2> {
                     timeout: () => debugPrint('timeout'));
               },
               builder: (context, state) {
-                return state.when(
-                    initial: onlyLocalRender,
-                    connected: onlyLocalRender,
-                    disconnected: onlyLocalRender,
-                    receiveJoined: onlyLocalRender,
-                    receiveOffer: (data) => onlyLocalRender(),
-                    receiveAnswer: (data) => Text(''),
-                    receiveIce: (data) => Text(''),
-                    error: onlyLocalRender,
-                    timeout: onlyLocalRender);             
+                return state.maybeWhen(
+                  orElse: onlyLocalRender,
+                  receiveAnswer: (data) => Center(
+                      child: Text(
+                    '1',
+                    style: TextStyle(color: Colors.black),
+                  )),
+                  receiveIce: (data) => Center(
+                      child: Text('2', style: TextStyle(color: Colors.black))),
+                );
               },
             ),
           ),
