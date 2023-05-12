@@ -19,6 +19,9 @@ void main() async {
       lazy: false,
       create: (BuildContext context) => SocketBloc(),
     ),
+    BlocProvider<WebRTCBloc>(
+      create: (BuildContext context) => WebRTCBloc(context.read<SocketBloc>()),
+    ),
   ], child: const MyApp()));
 }
 
@@ -47,6 +50,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final _room = ValueNotifier<String>('');
+  final _nickName = ValueNotifier<String>('');
+
   void _incrementCounter() {
     // Navigator.push(
     //     context, MaterialPageRoute(builder: (context) => WebRTCPage()));
@@ -54,18 +60,45 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                create: (context) => WebRTCBloc(context.read<SocketBloc>()),
-                child: WebRTCPage2())));
+            builder: (context) => WebRTCPage2(
+                  roomId: _room.value,
+                  nickName: _nickName.value,
+                )));
   }
 
   @override
   Widget build(BuildContext context) {
+    // context.watch<SocketBloc>();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(),
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ValueListenableBuilder(
+              valueListenable: _room,
+              builder: (BuildContext context, value, Widget? child) =>
+                  TextField(
+                onChanged: (value) => _room.value = value,
+                onSubmitted: (value) => _room.value = value,
+                maxLength: 6,
+              ),
+            ),
+            ValueListenableBuilder(
+              valueListenable: _nickName,
+              builder: (BuildContext context, value, Widget? child) =>
+                  TextField(
+                onChanged: (value) => _nickName.value = value,
+                onSubmitted: (value) => _nickName.value = value,
+                maxLength: 6,
+              ),
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',

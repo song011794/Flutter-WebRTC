@@ -22,4 +22,11 @@ const factory SocketEvent.onSendJoin(String event, [dynamic data]) = _SocketSend
   const factory SocketEvent.onSendIce(String event, [dynamic data]) =
       _SocketSendIceEvent;
   const factory SocketEvent.onGotIce() = _SocketGotIceEvent;
+
+
+  const factory SocketEvent.onSendMassage(String event, [dynamic data]) =
+      _SocketSendMassageEvent;
+
+      const factory SocketEvent.onGotMassage(String event, [dynamic data]) =
+      _SocketGotMassageEvent;
 }

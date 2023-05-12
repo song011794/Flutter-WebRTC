@@ -16,10 +16,16 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
   late final MediaStream? _localStream;
   late final RTCPeerConnection? _pc;
 
-  late final SocketBloc _socketBloc;
+  late final SocketBloc socketBloc;
 
-  WebRTCBloc(this._socketBloc) : super(const WebRtcState.initial()) {
+  WebRTCBloc(this.socketBloc) : super(const WebRtcState.initial()) {
+    socketBloc.socket.on('massage', (data) {
+      print(data);
+    });
+
     on<_WebRtcInialize>((event, emit) {
+      localRenderer.initialize();
+      remoteRenderer.initialize();
       emit(const WebRtcState.connecting('local'));
       add(const WebRtcEvent.localConnecting());
     });
@@ -39,7 +45,7 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
         "optional": []
       };
 
-      _pc = await createPeerConnection(config, sdpConstraints);
+      _pc = await createPeerConnection(config, sdpConstraints);   
 
       final mediaConstraints = {
         'audio': true,
@@ -60,15 +66,16 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
 
       _pc!.onAddStream = (stream) {
         remoteRenderer.srcObject = stream;
-      };
+      };      
 
-      emit(const WebRtcState.connected('local'));
       add(const WebRtcEvent.localConnected());
     });
 
-    on<_WebRtcLocalConnected>((event, emit) async {});
-
-    _socketBloc.add(const SocketEvent.onSendJoin('join', {'room': 'dogRoom'}));
+    on<_WebRtcLocalConnected>((event, emit) async {
+      await Future.delayed(const Duration(seconds: 1));
+      emit(const WebRtcState.connected('local'));
+      socketBloc.add(const SocketEvent.onSendJoin('join', {'room': 'dogRoom'}));
+    });
 
     add(const WebRtcEvent.initalize());
   }
@@ -77,7 +84,7 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
     var offer = await _pc!.createOffer();
     _pc!.setLocalDescription(offer);
 
-    _socketBloc.add(SocketEvent.onSendOffer(
+    socketBloc.add(SocketEvent.onSendOffer(
         'offer', {'room': 'dogRoom', 'offerData': jsonEncode(offer.toMap())}));
   }
 
@@ -90,7 +97,7 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
     // debugPrint('send answer');
     var answer = await _pc!.createAnswer();
     _pc!.setLocalDescription(answer);
-    _socketBloc.add(SocketEvent.onSendAnswer('answer',
+    socketBloc.add(SocketEvent.onSendAnswer('answer',
         {'room': 'dogRoom', 'answerData': jsonEncode(answer.toMap())}));
   }
 
@@ -100,7 +107,8 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
   }
 
   Future _sendIce(RTCIceCandidate ice) async {
-    _socketBloc.add(SocketEvent.onSendIce(
+    print('_sendIce');
+    socketBloc.add(SocketEvent.onSendIce(
         'ice', {'room': 'dogRoom', 'iceData': jsonEncode(ice.toMap())}));
   }
 

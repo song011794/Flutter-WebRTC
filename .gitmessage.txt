@@ -1,6 +1,6 @@
-feature : WebRTC Bloc화
+fix : WebRTC 화면 제어 수정
 
-1. WebRTC Bloc화
+1. WebRTC Bloc화 후 화면 나오지 않는 현상 수정
 
 
 
