@@ -18,23 +18,41 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WebRtcEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initalize,
+    required TResult Function(String room) initalize,
     required TResult Function() localConnecting,
     required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initalize,
+    TResult? Function(String room)? initalize,
     TResult? Function()? localConnecting,
     TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initalize,
+    TResult Function(String room)? initalize,
     TResult Function()? localConnecting,
     TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +61,12 @@ mixin _$WebRtcEvent {
     required TResult Function(_WebRtcInialize value) initalize,
     required TResult Function(_WebRtcLocalConnecting value) localConnecting,
     required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +74,12 @@ mixin _$WebRtcEvent {
     TResult? Function(_WebRtcInialize value)? initalize,
     TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
     TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +87,12 @@ mixin _$WebRtcEvent {
     TResult Function(_WebRtcInialize value)? initalize,
     TResult Function(_WebRtcLocalConnecting value)? localConnecting,
     TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -85,6 +121,8 @@ abstract class _$$_WebRtcInializeCopyWith<$Res> {
   factory _$$_WebRtcInializeCopyWith(
           _$_WebRtcInialize value, $Res Function(_$_WebRtcInialize) then) =
       __$$_WebRtcInializeCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String room});
 }
 
 /// @nodoc
@@ -94,57 +132,99 @@ class __$$_WebRtcInializeCopyWithImpl<$Res>
   __$$_WebRtcInializeCopyWithImpl(
       _$_WebRtcInialize _value, $Res Function(_$_WebRtcInialize) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? room = null,
+  }) {
+    return _then(_$_WebRtcInialize(
+      null == room
+          ? _value.room
+          : room // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_WebRtcInialize implements _WebRtcInialize {
-  const _$_WebRtcInialize();
+  const _$_WebRtcInialize(this.room);
+
+  @override
+  final String room;
 
   @override
   String toString() {
-    return 'WebRtcEvent.initalize()';
+    return 'WebRtcEvent.initalize(room: $room)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_WebRtcInialize);
+        (other.runtimeType == runtimeType &&
+            other is _$_WebRtcInialize &&
+            (identical(other.room, room) || other.room == room));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, room);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WebRtcInializeCopyWith<_$_WebRtcInialize> get copyWith =>
+      __$$_WebRtcInializeCopyWithImpl<_$_WebRtcInialize>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initalize,
+    required TResult Function(String room) initalize,
     required TResult Function() localConnecting,
     required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
   }) {
-    return initalize();
+    return initalize(room);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initalize,
+    TResult? Function(String room)? initalize,
     TResult? Function()? localConnecting,
     TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
   }) {
-    return initalize?.call();
+    return initalize?.call(room);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initalize,
+    TResult Function(String room)? initalize,
     TResult Function()? localConnecting,
     TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
     required TResult orElse(),
   }) {
     if (initalize != null) {
-      return initalize();
+      return initalize(room);
     }
     return orElse();
   }
@@ -155,6 +235,12 @@ class _$_WebRtcInialize implements _WebRtcInialize {
     required TResult Function(_WebRtcInialize value) initalize,
     required TResult Function(_WebRtcLocalConnecting value) localConnecting,
     required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
   }) {
     return initalize(this);
   }
@@ -165,6 +251,12 @@ class _$_WebRtcInialize implements _WebRtcInialize {
     TResult? Function(_WebRtcInialize value)? initalize,
     TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
     TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
   }) {
     return initalize?.call(this);
   }
@@ -175,6 +267,12 @@ class _$_WebRtcInialize implements _WebRtcInialize {
     TResult Function(_WebRtcInialize value)? initalize,
     TResult Function(_WebRtcLocalConnecting value)? localConnecting,
     TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
     required TResult orElse(),
   }) {
     if (initalize != null) {
@@ -185,7 +283,12 @@ class _$_WebRtcInialize implements _WebRtcInialize {
 }
 
 abstract class _WebRtcInialize implements WebRtcEvent {
-  const factory _WebRtcInialize() = _$_WebRtcInialize;
+  const factory _WebRtcInialize(final String room) = _$_WebRtcInialize;
+
+  String get room;
+  @JsonKey(ignore: true)
+  _$$_WebRtcInializeCopyWith<_$_WebRtcInialize> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -226,9 +329,15 @@ class _$_WebRtcLocalConnecting implements _WebRtcLocalConnecting {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initalize,
+    required TResult Function(String room) initalize,
     required TResult Function() localConnecting,
     required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
   }) {
     return localConnecting();
   }
@@ -236,9 +345,15 @@ class _$_WebRtcLocalConnecting implements _WebRtcLocalConnecting {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initalize,
+    TResult? Function(String room)? initalize,
     TResult? Function()? localConnecting,
     TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
   }) {
     return localConnecting?.call();
   }
@@ -246,9 +361,15 @@ class _$_WebRtcLocalConnecting implements _WebRtcLocalConnecting {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initalize,
+    TResult Function(String room)? initalize,
     TResult Function()? localConnecting,
     TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
     required TResult orElse(),
   }) {
     if (localConnecting != null) {
@@ -263,6 +384,12 @@ class _$_WebRtcLocalConnecting implements _WebRtcLocalConnecting {
     required TResult Function(_WebRtcInialize value) initalize,
     required TResult Function(_WebRtcLocalConnecting value) localConnecting,
     required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
   }) {
     return localConnecting(this);
   }
@@ -273,6 +400,12 @@ class _$_WebRtcLocalConnecting implements _WebRtcLocalConnecting {
     TResult? Function(_WebRtcInialize value)? initalize,
     TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
     TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
   }) {
     return localConnecting?.call(this);
   }
@@ -283,6 +416,12 @@ class _$_WebRtcLocalConnecting implements _WebRtcLocalConnecting {
     TResult Function(_WebRtcInialize value)? initalize,
     TResult Function(_WebRtcLocalConnecting value)? localConnecting,
     TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
     required TResult orElse(),
   }) {
     if (localConnecting != null) {
@@ -334,9 +473,15 @@ class _$_WebRtcLocalConnected implements _WebRtcLocalConnected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initalize,
+    required TResult Function(String room) initalize,
     required TResult Function() localConnecting,
     required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
   }) {
     return localConnected();
   }
@@ -344,9 +489,15 @@ class _$_WebRtcLocalConnected implements _WebRtcLocalConnected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initalize,
+    TResult? Function(String room)? initalize,
     TResult? Function()? localConnecting,
     TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
   }) {
     return localConnected?.call();
   }
@@ -354,9 +505,15 @@ class _$_WebRtcLocalConnected implements _WebRtcLocalConnected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initalize,
+    TResult Function(String room)? initalize,
     TResult Function()? localConnecting,
     TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
     required TResult orElse(),
   }) {
     if (localConnected != null) {
@@ -371,6 +528,12 @@ class _$_WebRtcLocalConnected implements _WebRtcLocalConnected {
     required TResult Function(_WebRtcInialize value) initalize,
     required TResult Function(_WebRtcLocalConnecting value) localConnecting,
     required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
   }) {
     return localConnected(this);
   }
@@ -381,6 +544,12 @@ class _$_WebRtcLocalConnected implements _WebRtcLocalConnected {
     TResult? Function(_WebRtcInialize value)? initalize,
     TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
     TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
   }) {
     return localConnected?.call(this);
   }
@@ -391,6 +560,12 @@ class _$_WebRtcLocalConnected implements _WebRtcLocalConnected {
     TResult Function(_WebRtcInialize value)? initalize,
     TResult Function(_WebRtcLocalConnecting value)? localConnecting,
     TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
     required TResult orElse(),
   }) {
     if (localConnected != null) {
@@ -402,6 +577,999 @@ class _$_WebRtcLocalConnected implements _WebRtcLocalConnected {
 
 abstract class _WebRtcLocalConnected implements WebRtcEvent {
   const factory _WebRtcLocalConnected() = _$_WebRtcLocalConnected;
+}
+
+/// @nodoc
+abstract class _$$_WebRtcRemoteConnectedCopyWith<$Res> {
+  factory _$$_WebRtcRemoteConnectedCopyWith(_$_WebRtcRemoteConnected value,
+          $Res Function(_$_WebRtcRemoteConnected) then) =
+      __$$_WebRtcRemoteConnectedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_WebRtcRemoteConnectedCopyWithImpl<$Res>
+    extends _$WebRtcEventCopyWithImpl<$Res, _$_WebRtcRemoteConnected>
+    implements _$$_WebRtcRemoteConnectedCopyWith<$Res> {
+  __$$_WebRtcRemoteConnectedCopyWithImpl(_$_WebRtcRemoteConnected _value,
+      $Res Function(_$_WebRtcRemoteConnected) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_WebRtcRemoteConnected implements _WebRtcRemoteConnected {
+  const _$_WebRtcRemoteConnected();
+
+  @override
+  String toString() {
+    return 'WebRtcEvent.remoteConnected()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_WebRtcRemoteConnected);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String room) initalize,
+    required TResult Function() localConnecting,
+    required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
+  }) {
+    return remoteConnected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String room)? initalize,
+    TResult? Function()? localConnecting,
+    TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
+  }) {
+    return remoteConnected?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String room)? initalize,
+    TResult Function()? localConnecting,
+    TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (remoteConnected != null) {
+      return remoteConnected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WebRtcInialize value) initalize,
+    required TResult Function(_WebRtcLocalConnecting value) localConnecting,
+    required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
+  }) {
+    return remoteConnected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WebRtcInialize value)? initalize,
+    TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
+  }) {
+    return remoteConnected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WebRtcInialize value)? initalize,
+    TResult Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (remoteConnected != null) {
+      return remoteConnected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WebRtcRemoteConnected implements WebRtcEvent {
+  const factory _WebRtcRemoteConnected() = _$_WebRtcRemoteConnected;
+}
+
+/// @nodoc
+abstract class _$$_WebRtcRemoteConnectingCopyWith<$Res> {
+  factory _$$_WebRtcRemoteConnectingCopyWith(_$_WebRtcRemoteConnecting value,
+          $Res Function(_$_WebRtcRemoteConnecting) then) =
+      __$$_WebRtcRemoteConnectingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_WebRtcRemoteConnectingCopyWithImpl<$Res>
+    extends _$WebRtcEventCopyWithImpl<$Res, _$_WebRtcRemoteConnecting>
+    implements _$$_WebRtcRemoteConnectingCopyWith<$Res> {
+  __$$_WebRtcRemoteConnectingCopyWithImpl(_$_WebRtcRemoteConnecting _value,
+      $Res Function(_$_WebRtcRemoteConnecting) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_WebRtcRemoteConnecting implements _WebRtcRemoteConnecting {
+  const _$_WebRtcRemoteConnecting();
+
+  @override
+  String toString() {
+    return 'WebRtcEvent.remoteConnecting()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WebRtcRemoteConnecting);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String room) initalize,
+    required TResult Function() localConnecting,
+    required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
+  }) {
+    return remoteConnecting();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String room)? initalize,
+    TResult? Function()? localConnecting,
+    TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
+  }) {
+    return remoteConnecting?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String room)? initalize,
+    TResult Function()? localConnecting,
+    TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (remoteConnecting != null) {
+      return remoteConnecting();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WebRtcInialize value) initalize,
+    required TResult Function(_WebRtcLocalConnecting value) localConnecting,
+    required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
+  }) {
+    return remoteConnecting(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WebRtcInialize value)? initalize,
+    TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
+  }) {
+    return remoteConnecting?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WebRtcInialize value)? initalize,
+    TResult Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (remoteConnecting != null) {
+      return remoteConnecting(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WebRtcRemoteConnecting implements WebRtcEvent {
+  const factory _WebRtcRemoteConnecting() = _$_WebRtcRemoteConnecting;
+}
+
+/// @nodoc
+abstract class _$$_WebRtcSendOfferCopyWith<$Res> {
+  factory _$$_WebRtcSendOfferCopyWith(
+          _$_WebRtcSendOffer value, $Res Function(_$_WebRtcSendOffer) then) =
+      __$$_WebRtcSendOfferCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String room});
+}
+
+/// @nodoc
+class __$$_WebRtcSendOfferCopyWithImpl<$Res>
+    extends _$WebRtcEventCopyWithImpl<$Res, _$_WebRtcSendOffer>
+    implements _$$_WebRtcSendOfferCopyWith<$Res> {
+  __$$_WebRtcSendOfferCopyWithImpl(
+      _$_WebRtcSendOffer _value, $Res Function(_$_WebRtcSendOffer) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? room = null,
+  }) {
+    return _then(_$_WebRtcSendOffer(
+      null == room
+          ? _value.room
+          : room // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WebRtcSendOffer implements _WebRtcSendOffer {
+  const _$_WebRtcSendOffer(this.room);
+
+  @override
+  final String room;
+
+  @override
+  String toString() {
+    return 'WebRtcEvent.sendOffer(room: $room)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WebRtcSendOffer &&
+            (identical(other.room, room) || other.room == room));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, room);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WebRtcSendOfferCopyWith<_$_WebRtcSendOffer> get copyWith =>
+      __$$_WebRtcSendOfferCopyWithImpl<_$_WebRtcSendOffer>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String room) initalize,
+    required TResult Function() localConnecting,
+    required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
+  }) {
+    return sendOffer(room);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String room)? initalize,
+    TResult? Function()? localConnecting,
+    TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
+  }) {
+    return sendOffer?.call(room);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String room)? initalize,
+    TResult Function()? localConnecting,
+    TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (sendOffer != null) {
+      return sendOffer(room);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WebRtcInialize value) initalize,
+    required TResult Function(_WebRtcLocalConnecting value) localConnecting,
+    required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
+  }) {
+    return sendOffer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WebRtcInialize value)? initalize,
+    TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
+  }) {
+    return sendOffer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WebRtcInialize value)? initalize,
+    TResult Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (sendOffer != null) {
+      return sendOffer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WebRtcSendOffer implements WebRtcEvent {
+  const factory _WebRtcSendOffer(final String room) = _$_WebRtcSendOffer;
+
+  String get room;
+  @JsonKey(ignore: true)
+  _$$_WebRtcSendOfferCopyWith<_$_WebRtcSendOffer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_WebRtcGotOfferCopyWith<$Res> {
+  factory _$$_WebRtcGotOfferCopyWith(
+          _$_WebRtcGotOffer value, $Res Function(_$_WebRtcGotOffer) then) =
+      __$$_WebRtcGotOfferCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String room, dynamic data});
+}
+
+/// @nodoc
+class __$$_WebRtcGotOfferCopyWithImpl<$Res>
+    extends _$WebRtcEventCopyWithImpl<$Res, _$_WebRtcGotOffer>
+    implements _$$_WebRtcGotOfferCopyWith<$Res> {
+  __$$_WebRtcGotOfferCopyWithImpl(
+      _$_WebRtcGotOffer _value, $Res Function(_$_WebRtcGotOffer) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? room = null,
+    Object? data = freezed,
+  }) {
+    return _then(_$_WebRtcGotOffer(
+      null == room
+          ? _value.room
+          : room // ignore: cast_nullable_to_non_nullable
+              as String,
+      freezed == data ? _value.data! : data,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WebRtcGotOffer implements _WebRtcGotOffer {
+  const _$_WebRtcGotOffer(this.room, this.data);
+
+  @override
+  final String room;
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'WebRtcEvent.gotOffer(room: $room, data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WebRtcGotOffer &&
+            (identical(other.room, room) || other.room == room) &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, room, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WebRtcGotOfferCopyWith<_$_WebRtcGotOffer> get copyWith =>
+      __$$_WebRtcGotOfferCopyWithImpl<_$_WebRtcGotOffer>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String room) initalize,
+    required TResult Function() localConnecting,
+    required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
+  }) {
+    return gotOffer(room, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String room)? initalize,
+    TResult? Function()? localConnecting,
+    TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
+  }) {
+    return gotOffer?.call(room, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String room)? initalize,
+    TResult Function()? localConnecting,
+    TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (gotOffer != null) {
+      return gotOffer(room, data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WebRtcInialize value) initalize,
+    required TResult Function(_WebRtcLocalConnecting value) localConnecting,
+    required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
+  }) {
+    return gotOffer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WebRtcInialize value)? initalize,
+    TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
+  }) {
+    return gotOffer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WebRtcInialize value)? initalize,
+    TResult Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (gotOffer != null) {
+      return gotOffer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WebRtcGotOffer implements WebRtcEvent {
+  const factory _WebRtcGotOffer(final String room, final dynamic data) =
+      _$_WebRtcGotOffer;
+
+  String get room;
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$_WebRtcGotOfferCopyWith<_$_WebRtcGotOffer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_WebRtcGotAnswerCopyWith<$Res> {
+  factory _$$_WebRtcGotAnswerCopyWith(
+          _$_WebRtcGotAnswer value, $Res Function(_$_WebRtcGotAnswer) then) =
+      __$$_WebRtcGotAnswerCopyWithImpl<$Res>;
+  @useResult
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$$_WebRtcGotAnswerCopyWithImpl<$Res>
+    extends _$WebRtcEventCopyWithImpl<$Res, _$_WebRtcGotAnswer>
+    implements _$$_WebRtcGotAnswerCopyWith<$Res> {
+  __$$_WebRtcGotAnswerCopyWithImpl(
+      _$_WebRtcGotAnswer _value, $Res Function(_$_WebRtcGotAnswer) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$_WebRtcGotAnswer(
+      freezed == data ? _value.data! : data,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WebRtcGotAnswer implements _WebRtcGotAnswer {
+  const _$_WebRtcGotAnswer(this.data);
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'WebRtcEvent.gotAnswer(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WebRtcGotAnswer &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WebRtcGotAnswerCopyWith<_$_WebRtcGotAnswer> get copyWith =>
+      __$$_WebRtcGotAnswerCopyWithImpl<_$_WebRtcGotAnswer>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String room) initalize,
+    required TResult Function() localConnecting,
+    required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
+  }) {
+    return gotAnswer(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String room)? initalize,
+    TResult? Function()? localConnecting,
+    TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
+  }) {
+    return gotAnswer?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String room)? initalize,
+    TResult Function()? localConnecting,
+    TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (gotAnswer != null) {
+      return gotAnswer(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WebRtcInialize value) initalize,
+    required TResult Function(_WebRtcLocalConnecting value) localConnecting,
+    required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
+  }) {
+    return gotAnswer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WebRtcInialize value)? initalize,
+    TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
+  }) {
+    return gotAnswer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WebRtcInialize value)? initalize,
+    TResult Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (gotAnswer != null) {
+      return gotAnswer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WebRtcGotAnswer implements WebRtcEvent {
+  const factory _WebRtcGotAnswer(final dynamic data) = _$_WebRtcGotAnswer;
+
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$_WebRtcGotAnswerCopyWith<_$_WebRtcGotAnswer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_WebRtcGotIceCopyWith<$Res> {
+  factory _$$_WebRtcGotIceCopyWith(
+          _$_WebRtcGotIce value, $Res Function(_$_WebRtcGotIce) then) =
+      __$$_WebRtcGotIceCopyWithImpl<$Res>;
+  @useResult
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$$_WebRtcGotIceCopyWithImpl<$Res>
+    extends _$WebRtcEventCopyWithImpl<$Res, _$_WebRtcGotIce>
+    implements _$$_WebRtcGotIceCopyWith<$Res> {
+  __$$_WebRtcGotIceCopyWithImpl(
+      _$_WebRtcGotIce _value, $Res Function(_$_WebRtcGotIce) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$_WebRtcGotIce(
+      freezed == data ? _value.data! : data,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WebRtcGotIce implements _WebRtcGotIce {
+  const _$_WebRtcGotIce(this.data);
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'WebRtcEvent.gotIce(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WebRtcGotIce &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_WebRtcGotIceCopyWith<_$_WebRtcGotIce> get copyWith =>
+      __$$_WebRtcGotIceCopyWithImpl<_$_WebRtcGotIce>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String room) initalize,
+    required TResult Function() localConnecting,
+    required TResult Function() localConnected,
+    required TResult Function() remoteConnected,
+    required TResult Function() remoteConnecting,
+    required TResult Function(String room) sendOffer,
+    required TResult Function(String room, dynamic data) gotOffer,
+    required TResult Function(dynamic data) gotAnswer,
+    required TResult Function(dynamic data) gotIce,
+  }) {
+    return gotIce(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String room)? initalize,
+    TResult? Function()? localConnecting,
+    TResult? Function()? localConnected,
+    TResult? Function()? remoteConnected,
+    TResult? Function()? remoteConnecting,
+    TResult? Function(String room)? sendOffer,
+    TResult? Function(String room, dynamic data)? gotOffer,
+    TResult? Function(dynamic data)? gotAnswer,
+    TResult? Function(dynamic data)? gotIce,
+  }) {
+    return gotIce?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String room)? initalize,
+    TResult Function()? localConnecting,
+    TResult Function()? localConnected,
+    TResult Function()? remoteConnected,
+    TResult Function()? remoteConnecting,
+    TResult Function(String room)? sendOffer,
+    TResult Function(String room, dynamic data)? gotOffer,
+    TResult Function(dynamic data)? gotAnswer,
+    TResult Function(dynamic data)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (gotIce != null) {
+      return gotIce(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WebRtcInialize value) initalize,
+    required TResult Function(_WebRtcLocalConnecting value) localConnecting,
+    required TResult Function(_WebRtcLocalConnected value) localConnected,
+    required TResult Function(_WebRtcRemoteConnected value) remoteConnected,
+    required TResult Function(_WebRtcRemoteConnecting value) remoteConnecting,
+    required TResult Function(_WebRtcSendOffer value) sendOffer,
+    required TResult Function(_WebRtcGotOffer value) gotOffer,
+    required TResult Function(_WebRtcGotAnswer value) gotAnswer,
+    required TResult Function(_WebRtcGotIce value) gotIce,
+  }) {
+    return gotIce(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WebRtcInialize value)? initalize,
+    TResult? Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult? Function(_WebRtcLocalConnected value)? localConnected,
+    TResult? Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult? Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult? Function(_WebRtcSendOffer value)? sendOffer,
+    TResult? Function(_WebRtcGotOffer value)? gotOffer,
+    TResult? Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult? Function(_WebRtcGotIce value)? gotIce,
+  }) {
+    return gotIce?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WebRtcInialize value)? initalize,
+    TResult Function(_WebRtcLocalConnecting value)? localConnecting,
+    TResult Function(_WebRtcLocalConnected value)? localConnected,
+    TResult Function(_WebRtcRemoteConnected value)? remoteConnected,
+    TResult Function(_WebRtcRemoteConnecting value)? remoteConnecting,
+    TResult Function(_WebRtcSendOffer value)? sendOffer,
+    TResult Function(_WebRtcGotOffer value)? gotOffer,
+    TResult Function(_WebRtcGotAnswer value)? gotAnswer,
+    TResult Function(_WebRtcGotIce value)? gotIce,
+    required TResult orElse(),
+  }) {
+    if (gotIce != null) {
+      return gotIce(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WebRtcGotIce implements WebRtcEvent {
+  const factory _WebRtcGotIce(final dynamic data) = _$_WebRtcGotIce;
+
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$_WebRtcGotIceCopyWith<_$_WebRtcGotIce> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:socket_io_client/socket_io_client.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 part 'socket_bloc.freezed.dart';
@@ -9,15 +9,15 @@ part 'socket_event.dart';
 part 'socket_state.dart';
 
 class SocketBloc extends Bloc<SocketEvent, SocketState> {
-  late final Socket socket;
+  late final IO.Socket socket;
 
   SocketBloc() : super(const SocketState.initial()) {
-    socket = io(
+    socket = IO.io(
       dotenv.get('SOCKET_HOST'),
-      OptionBuilder().setTransports(['websocket']).build(),
+      IO.OptionBuilder().setTransports(['websocket']).build(),
     );
 
-    socket.onConnecting((data) => add(const _SocketConnectingEvent()));
+    // socket.onConnecting((data) => add(const _SocketConnectingEvent()));
     socket.onConnect((_) => add(const _SocketOnConnect()));
     socket.onConnectError((data) => add(const _SocketConnectErrorEvent()));
     socket.onConnectTimeout((data) => add(const _SocketConnectTimeoutEvent()));
@@ -25,16 +25,19 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
     socket.onError((data) => add(const _SocketErrorEvent()));
 
     socket.on('joined', (data) {
-      print('asdad');
+      print('joined');
       add(const _SocketJoinedEvent());
     });
-    socket.on('offer', (data) => add(const _SocketGotOfferEvent()));
-    socket.on('answer', (data) => add(const _SocketGotAnswerEvent()));
-    socket.on('ice', (data) => add(const _SocketGotIceEvent()));
+    socket.on('offer', (data) => add(_SocketGotOfferEvent(data)));
+    socket.on('answer', (data) => add(_SocketGotAnswerEvent(data)));
+    socket.on('ice', (data) {
+      add(_SocketGotIceEvent(data));
+    });
+
     socket.on('massage', (data) => add(_SocketGotMassageEvent(data)));
 
     on<_SocketGotMassageEvent>((event, emit) {
-      print(event.toString());
+      // print(event.toString());
     });
 
     // User events
@@ -47,67 +50,65 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
       socket.disconnect();
     });
     // Socket events
-    on<_SocketConnectingEvent>((event, emit) {
-      debugPrint('연결 중!');
-      emit(const SocketState.connected("Connecting"));
-    });
+    // on<_SocketConnectingEvent>((event, emit) {
+    //   debugPrint('연결 중!');
+    //   emit(const SocketState.connected("Connecting"));
+    // });
     on<_SocketOnConnect>((event, emit) {
       debugPrint('연결 완료!');
-      emit(SocketState.connected(socket.id!));
+      emit(const SocketState.connected());
     });
     on<_SocketConnectErrorEvent>((event, emit) {
       debugPrint('연결 실패!');
-      emit(const SocketState.connected("Connection Error"));
+      // emit(const SocketState.);
     });
     on<_SocketConnectTimeoutEvent>((event, emit) {
       debugPrint('연결 타임아웃!');
-      emit(const SocketState.connected("Connection timeout"));
+      emit(const SocketState.timeout());
     });
     on<_SocketOnDisconnect>((event, emit) {
       emit(const SocketState.disconnected());
     });
     on<_SocketErrorEvent>((event, emit) {
       debugPrint('연결 실패!');
-      emit(const SocketState.connected("ErrorEvent"));
+      emit(const SocketState.error());
     });
 
+    //Send Join
     on<_SocketSendJoinEvent>((event, emit) async {
       socket.emit(event.event, event.data);
-      emit(SocketState.connected("SendJoinEvent"));
     });
 
+    //Receive Join
     on<_SocketJoinedEvent>((event, emit) {
-      emit(const SocketState.connected("JoinedEvent"));
+      emit(const SocketState.receiveJoined());
     });
 
+    //Send Offer
     on<_SocketSendOfferEvent>((event, emit) {
       socket.emit(event.event, event.data);
-      emit(SocketState.connected("OfferEvent"));
-    });
-    on<_SocketGotOfferEvent>((event, emit) {
-      emit(SocketState.connected("OfferEvent"));
     });
 
-    on<_SocketSendAnswerEvent>((event, emit) {
-      socket.emit(event.event, event.data);
-      emit(SocketState.connected("AnswerEvent"));
-    });
-    on<_SocketGotAnswerEvent>((event, emit) {
-      emit(SocketState.connected("AnswerEvent"));
-    });
+    //Receive Offer
+    on<_SocketGotOfferEvent>(
+        (event, emit) => emit(SocketState.receiveOffer(event.data)));
 
+    //Send Answer
+    on<_SocketSendAnswerEvent>(
+        (event, emit) => socket.emit(event.event, event.data));
+
+    //Receive Answer
+    on<_SocketGotAnswerEvent>(
+        (event, emit) => emit(SocketState.receiveAnswer(event.data)));
+
+    //Send Ice
     on<_SocketSendIceEvent>((event, emit) {
       socket.emit(event.event, event.data);
-      emit(SocketState.connected("IceEvent"));
     });
+
+    //Receive Ice
     on<_SocketGotIceEvent>((event, emit) {
-      emit(SocketState.connected("IceEvent"));
-    });
-
-    on<_SocketSendMassageEvent>((event, emit) {
-      socket.emit(event.event, event.data);
-
-      // emit(SocketState.connected("SendJoinEvent"));
+      emit(SocketState.receiveIce(event.data));
     });
   }
   @override

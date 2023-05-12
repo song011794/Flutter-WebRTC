@@ -15,13 +15,13 @@ const factory SocketEvent.onSendJoin(String event, [dynamic data]) = _SocketSend
   const factory SocketEvent.onJoined() = _SocketJoinedEvent;
   const factory SocketEvent.onSendOffer(String event, [dynamic data]) =
       _SocketSendOfferEvent;
-  const factory SocketEvent.onGotOffer() = _SocketGotOfferEvent;
+  const factory SocketEvent.onGotOffer([dynamic data]) = _SocketGotOfferEvent;
   const factory SocketEvent.onSendAnswer(String event, [dynamic data]) =
       _SocketSendAnswerEvent;
-  const factory SocketEvent.onGotAnswer() = _SocketGotAnswerEvent;
+  const factory SocketEvent.onGotAnswer([dynamic data]) = _SocketGotAnswerEvent;
   const factory SocketEvent.onSendIce(String event, [dynamic data]) =
       _SocketSendIceEvent;
-  const factory SocketEvent.onGotIce() = _SocketGotIceEvent;
+  const factory SocketEvent.onGotIce([dynamic data]) = _SocketGotIceEvent;
 
 
   const factory SocketEvent.onSendMassage(String event, [dynamic data]) =

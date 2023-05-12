@@ -38,13 +38,13 @@ class WebRTCBloc extends Cubit<WebRTCState> {
 
     socket.onConnect((_) {
       debugPrint('연결 완료!');
-      socket.emit(
-          'message', {'type': 'nickName', 'room': 'dogRoom', 'payload': 'kim'});
+      // socket.emit(
+      //     'message', {'type': 'nickName', 'room': 'dogRoom', 'payload': 'kim'});
 
-      Future.delayed(Duration(milliseconds: 500), () {
-        socket.emit('message',
-            {'type': 'newMessage', 'room': 'dogRoom', 'payload': '오예'});
-      });
+      // Future.delayed(Duration(milliseconds: 500), () {
+      //   socket.emit('message',
+      //       {'type': 'newMessage', 'room': 'dogRoom', 'payload': '오예'});
+      // });
     });
 
     socket.on('message', (data) {
@@ -119,15 +119,15 @@ class WebRTCBloc extends Cubit<WebRTCState> {
       emit(WebRTCState.remoteConnected);
     };
 
-    socket.emit('join', {'room': 'dogRoom'});    
+    socket.emit('join', {'room': 'dogRoom'});
   }
 
   Future _sendOffer() async {
     debugPrint('send offer');
     var offer = await pc!.createOffer();
     pc!.setLocalDescription(offer);
-    socket
-        .emit('offer', {'room': 'dogRoom', 'offerData': jsonEncode(offer.toMap())});
+    socket.emit(
+        'offer', {'room': 'dogRoom', 'offerData': jsonEncode(offer.toMap())});
   }
 
   Future _gotOffer(RTCSessionDescription offer) async {
@@ -139,8 +139,8 @@ class WebRTCBloc extends Cubit<WebRTCState> {
     debugPrint('send answer');
     var answer = await pc!.createAnswer();
     pc!.setLocalDescription(answer);
-    socket.emit(
-        'answer', {'room': 'dogRoom', 'answerData': jsonEncode(answer.toMap())});
+    socket.emit('answer',
+        {'room': 'dogRoom', 'answerData': jsonEncode(answer.toMap())});
   }
 
   Future _gotAnswer(RTCSessionDescription answer) async {
@@ -149,18 +149,23 @@ class WebRTCBloc extends Cubit<WebRTCState> {
   }
 
   Future _sendIce(RTCIceCandidate ice) async {
+    print('_sendIce');
     socket.emit('ice', {'room': 'dogRoom', 'iceData': jsonEncode(ice.toMap())});
   }
 
   Future _gotIce(RTCIceCandidate ice) async {
+    print('_gotIce');
     pc!.addCandidate(ice);
   }
 
-  void dispose() {
-    // Clean up the resources used by the peer connection
-    localRenderer.dispose();
+@override
+  Future<void> close() {
+      localRenderer.dispose();
     remoteRenderer.dispose();
     _localStream?.dispose();
     pc?.close();
+    return super.close();
   }
+
+
 }

@@ -1,6 +1,6 @@
-fix : WebRTC 화면 제어 수정
+fix : socket.io 로직 버그 수정 및 정리
 
-1. WebRTC Bloc화 후 화면 나오지 않는 현상 수정
+1. socket.io 로직 버그 수정 및 정리
 
 
 

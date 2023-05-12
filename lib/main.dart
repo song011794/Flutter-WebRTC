@@ -64,6 +64,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   roomId: _room.value,
                   nickName: _nickName.value,
                 )));
+
+    //  Navigator.push(
+        // context, MaterialPageRoute(builder: (context) => TestPage()));
+
   }
 
   @override
@@ -84,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   TextField(
                 onChanged: (value) => _room.value = value,
                 onSubmitted: (value) => _room.value = value,
-                maxLength: 6,
+                maxLength: 8,
               ),
             ),
             ValueListenableBuilder(
@@ -93,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   TextField(
                 onChanged: (value) => _nickName.value = value,
                 onSubmitted: (value) => _nickName.value = value,
-                maxLength: 6,
+                maxLength: 8,
               ),
             ),
           ],

@@ -34,7 +34,6 @@ class _WebRTCPageState extends State<WebRTCPage> {
 
   @override
   void dispose() {
-    _bloc.dispose();
     super.dispose();
   }
 
