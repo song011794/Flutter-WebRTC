@@ -4,4 +4,5 @@ part of 'web_rtc_bloc.dart';
 class WebRtcState with _$WebRtcState {
   const factory WebRtcState.initial() = _WebRtcInitial; 
   const factory WebRtcState.ready() = _WebRtcReady; 
+  // const factory WebRtcState.remote() = _WebRtcRemote; 
 }

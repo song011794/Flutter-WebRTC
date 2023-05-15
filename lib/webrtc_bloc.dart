@@ -37,14 +37,7 @@ class WebRTCBloc extends Cubit<WebRTCState> {
         IO.OptionBuilder().setTransports(['websocket']).build());
 
     socket.onConnect((_) {
-      debugPrint('연결 완료!');
-      // socket.emit(
-      //     'message', {'type': 'nickName', 'room': 'dogRoom', 'payload': 'kim'});
-
-      // Future.delayed(Duration(milliseconds: 500), () {
-      //   socket.emit('message',
-      //       {'type': 'newMessage', 'room': 'dogRoom', 'payload': '오예'});
-      // });
+      debugPrint('연결 완료!');   
     });
 
     socket.on('message', (data) {

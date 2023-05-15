@@ -64,10 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   roomId: _room.value,
                   nickName: _nickName.value,
                 )));
-
-    //  Navigator.push(
-        // context, MaterialPageRoute(builder: (context) => TestPage()));
-
   }
 
   @override

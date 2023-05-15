@@ -11,29 +11,21 @@ part 'web_rtc_event.dart';
 part 'web_rtc_state.dart';
 
 class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
-  late final RTCVideoRenderer localRenderer = RTCVideoRenderer();
-  late final RTCVideoRenderer remoteRenderer = RTCVideoRenderer();
+  final RTCVideoRenderer localRenderer = RTCVideoRenderer();
+  final RTCVideoRenderer remoteRenderer = RTCVideoRenderer();
   late final MediaStream? _localStream;
   late final RTCPeerConnection? _pc;
 
   late final SocketBloc _socketBloc;
 
   WebRTCBloc(this._socketBloc) : super(const WebRtcState.initial()) {
-    _socketBloc.socket.on('massage', (data) {
-      print(data);
+    on<_WebRtcInialize>((event, emit) async {
+      String room = event.room;
+
+      localRenderer.initialize();
+      remoteRenderer.initialize();
+      await _init(room, emit).then((value) => emit(const WebRtcState.ready()));
     });
-
-    on<_WebRtcInialize>(
-      (event, emit) async {
-        String room = event.room;
-
-        localRenderer.initialize();
-        remoteRenderer.initialize();
-        await _init(room, emit);
-
-        emit(const _WebRtcReady());
-      },
-    );
   }
 
   Future _init(String room, Emitter<WebRtcState> emit) async {
@@ -71,8 +63,11 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
     };
 
     _pc!.onAddStream = (stream) {
+      print('Remote Go');
       remoteRenderer.srcObject = stream;
     };
+
+    _socketBloc.add(SocketEvent.onSendJoin('join', {'room': room}));
   }
 
   Future sendOffer(String room) async {
@@ -89,22 +84,26 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
 
   Future sendAnswer(String room) async {
     var answer = await _pc!.createAnswer();
-    await _pc!.setLocalDescription(answer);
+    // await
+    _pc!.setLocalDescription(answer);
 
     _socketBloc.add(SocketEvent.onSendAnswer(
         'answer', {'room': room, 'answerData': jsonEncode(answer.toMap())}));
   }
 
   Future gotAnswer(RTCSessionDescription answer) async {
-    await _pc!.setRemoteDescription(answer);
+    // await
+    _pc!.setRemoteDescription(answer);
   }
 
   Future _sendIce(String room, RTCIceCandidate ice) async {
+    print('send Ice');
     _socketBloc.add(SocketEvent.onSendIce(
         'ice', {'room': room, 'iceData': jsonEncode(ice.toMap())}));
   }
 
   Future gotIce(RTCIceCandidate ice) async {
+    print('got Ice');
     await _pc!.addCandidate(ice);
   }
 
