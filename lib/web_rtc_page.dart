@@ -12,7 +12,7 @@ class WebRTCPage2 extends StatefulWidget {
   final String roomId;
   final String nickName;
 
-  const WebRTCPage2({required this.roomId, required this.nickName});
+  const WebRTCPage2({super.key, required this.roomId, required this.nickName});
 
   @override
   _WebRTCPageState createState() => _WebRTCPageState();
@@ -20,7 +20,6 @@ class WebRTCPage2 extends StatefulWidget {
 
 class _WebRTCPageState extends State<WebRTCPage2> {
   final GlobalKey _renderkey = GlobalKey();
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
   double _x = -1;
   double _y = -1;
   double localRenderSizeWidth = 150;
@@ -43,23 +42,101 @@ class _WebRTCPageState extends State<WebRTCPage2> {
     context.read<WebRTCBloc>().dispose();
   }
 
+  PreferredSizeWidget _appBar() => AppBar(
+        foregroundColor: Colors.black,
+        title: const Text(
+          'Home',
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white.withAlpha(200),
+        elevation: 0,
+      );
+
+  Widget onlyLocalRender() {
+    return BlocBuilder<WebRTCBloc, WebRtcState>(
+        bloc: _webRTCBloc,
+        builder: (context, state) {
+          return state.when(
+              initial: () => const Text('Waiting for connection...'),
+              ready: () => RTCVideoView(_webRTCBloc.localRenderer,
+                  objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+                  filterQuality: FilterQuality.medium));
+        });
+  }
+
+  Widget localAndRemoteRender(
+      Size size, GlobalKey<State<StatefulWidget>> scaffoldKey) {
+    final RenderBox renderBox =
+        _renderkey.currentContext!.findRenderObject() as RenderBox;
+
+    return Stack(
+      children: [
+        RTCVideoView(_webRTCBloc.remoteRenderer,
+            objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+            filterQuality: FilterQuality.medium),
+        Positioned(
+          left: _x < 0 ? size.width - localRenderSizeWidth : _x,
+          top: _y < 0 ? renderBox.size.height - localRenderSizeHeight : _y,
+          child: Draggable(
+            onDragEnd: (dragDetails) {
+              setState(() {
+                size.width;
+                size.height;
+
+                // 왼쪽으로 넘어갈 경우
+                if (dragDetails.offset.dx < 0) {
+                  _x = 0;
+                } else {
+                  // 오른쪽으로 넘어갈 경우
+                  if (size.width - localRenderSizeWidth <
+                      dragDetails.offset.dx) {
+                    _x = size.width - localRenderSizeWidth;
+                  } else {
+                    _x = dragDetails.offset.dx;
+                  }
+                }
+
+                // 위쪽으로 넘어갈 경우
+                if (dragDetails.offset.dy < 0) {
+                  _y = 0;
+                } else {
+                  // 아래쪽으로 넘어갈 경우
+                  if (renderBox.size.height - localRenderSizeHeight <
+                      dragDetails.offset.dy) {
+                    _y = renderBox.size.height - localRenderSizeHeight;
+                  } else {
+                    _y = dragDetails.offset.dy;
+                  }
+                }
+              });
+            },
+            feedback: SizedBox(
+              width: localRenderSizeWidth,
+              height: localRenderSizeHeight,
+              child: RTCVideoView(_webRTCBloc.localRenderer,
+                  objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+                  filterQuality: FilterQuality.medium),
+            ),
+            child: SizedBox(
+              width: localRenderSizeWidth,
+              height: localRenderSizeHeight,
+              child: RTCVideoView(_webRTCBloc.localRenderer,
+                  objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
+                  filterQuality: FilterQuality.medium),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    Widget onlyLocalRender() {
-      return BlocBuilder<WebRTCBloc, WebRtcState>(
-          bloc: _webRTCBloc,
-          builder: (context, state) {
-            return state.when(
-                initial: () => Text('준비 중'),
-                ready: () => RTCVideoView(_webRTCBloc.localRenderer,
-                    objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitCover,
-                    filterQuality: FilterQuality.medium));
-          });
-    }
-
     return Scaffold(
+      appBar: _appBar(),
       body: Column(
         children: [
           Expanded(
@@ -108,17 +185,16 @@ class _WebRTCPageState extends State<WebRTCPage2> {
               builder: (context, state) {
                 return state.maybeWhen(
                   orElse: onlyLocalRender,
-                  receiveAnswer: (data) => Center(
-                      child: Text(
-                    '1',
-                    style: TextStyle(color: Colors.black),
-                  )),
-                  receiveIce: (data) => Center(
-                      child: Text('2', style: TextStyle(color: Colors.black))),
+                  receiveAnswer: (data) =>
+                      localAndRemoteRender(size, _renderkey),
+                  receiveIce: (data) => localAndRemoteRender(size, _renderkey),
                 );
               },
             ),
           ),
+
+          
+
         ],
       ),
     );
