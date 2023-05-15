@@ -17,7 +17,6 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
       IO.OptionBuilder().setTransports(['websocket']).build(),
     );
 
-    // socket.onConnecting((data) => add(const _SocketConnectingEvent()));
     socket.onConnect((_) => add(const _SocketOnConnect()));
     socket.onConnectError((data) => add(const _SocketConnectErrorEvent()));
     socket.onConnectTimeout((data) => add(const _SocketConnectTimeoutEvent()));
@@ -25,7 +24,6 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
     socket.onError((data) => add(const _SocketErrorEvent()));
 
     socket.on('joined', (data) {
-      print('joined');
       add(const _SocketJoinedEvent());
     });
     socket.on('offer', (data) => add(_SocketGotOfferEvent(data)));
@@ -34,10 +32,16 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
       add(_SocketGotIceEvent(data));
     });
 
-    socket.on('massage', (data) => add(_SocketGotMassageEvent(data)));
+    socket.on('message', (data) => add(_SocketGotMassageEvent(data)));
+
+    on<_SocketSendMassageEvent>((event, emit) {
+      socket.emit(event.event, event.data);
+    });
 
     on<_SocketGotMassageEvent>((event, emit) {
-      // print(event.toString());
+      emit(const _SocketReceiveMessage({'nickName' : '' , 'payload' : ''}));
+      print(event.toString());
+      emit(_SocketReceiveMessage(event.data));
     });
 
     // User events
@@ -49,11 +53,6 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
       debugPrint('연결 종료!');
       socket.disconnect();
     });
-    // Socket events
-    // on<_SocketConnectingEvent>((event, emit) {
-    //   debugPrint('연결 중!');
-    //   emit(const SocketState.connected("Connecting"));
-    // });
     on<_SocketOnConnect>((event, emit) {
       debugPrint('연결 완료!');
       emit(const SocketState.connected());

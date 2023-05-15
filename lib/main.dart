@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:webrtc/bloc/web_rtc_bloc.dart';
+
 import 'package:webrtc/web_rtc_page.dart';
 
-import 'package:webrtc/webrtc_page.dart';
-
-import 'bloc/socket_bloc.dart';
+import 'bloc/chat/chat_bloc.dart';
+import 'bloc/socket/socket_bloc.dart';
+import 'bloc/web_rtc/web_rtc_bloc.dart';
 
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
@@ -21,6 +21,9 @@ void main() async {
     ),
     BlocProvider<WebRTCBloc>(
       create: (BuildContext context) => WebRTCBloc(context.read<SocketBloc>()),
+    ),
+    BlocProvider<ChatBloc>(
+      create: (BuildContext context) => ChatBloc(context.read<SocketBloc>()),
     ),
   ], child: const MyApp()));
 }

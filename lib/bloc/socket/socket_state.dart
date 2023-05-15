@@ -3,8 +3,7 @@ part of 'socket_bloc.dart';
 @freezed
 class SocketState with _$SocketState {
   const factory SocketState.initial() = _SocketInitial;
-  const factory SocketState.connected() =
-      _SocketConnected;
+  const factory SocketState.connected() = _SocketConnected;
   const factory SocketState.disconnected() = _SocketDisonnected;
   const factory SocketState.error() = _SocketError;
   const factory SocketState.timeout() = _SocketTimeout;
@@ -14,5 +13,6 @@ class SocketState with _$SocketState {
       _SocketReceiveAnswer;
   const factory SocketState.receiveIce([dynamic data]) = _SocketReceiveIce;
 
-  
+  const factory SocketState.receiveMessage(
+      [@Default({}) Map<String, dynamic> data]) = _SocketReceiveMessage;
 }

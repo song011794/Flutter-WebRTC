@@ -27,6 +27,6 @@ const factory SocketEvent.onSendJoin(String event, [dynamic data]) = _SocketSend
   const factory SocketEvent.onSendMassage(String event, [dynamic data]) =
       _SocketSendMassageEvent;
 
-      const factory SocketEvent.onGotMassage(String event, [dynamic data]) =
+      const factory SocketEvent.onGotMassage([dynamic data]) =
       _SocketGotMassageEvent;
 }

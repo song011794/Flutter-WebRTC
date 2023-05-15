@@ -167,7 +167,8 @@ class _WebRTCPageState extends State<WebRTCPage> {
             ),
             Expanded(
               flex: 1,
-              child: Column(children: [
+              child: 
+              Column(children: [
                 Expanded(flex: 2, child: ListView()),
                 Expanded(
                     child: Padding(

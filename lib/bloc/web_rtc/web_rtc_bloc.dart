@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:webrtc/bloc/socket_bloc.dart';
+import '../socket/socket_bloc.dart';
+
+
 
 part 'web_rtc_bloc.freezed.dart';
 part 'web_rtc_event.dart';
@@ -62,8 +64,7 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
       _sendIce(room, ice);
     };
 
-    _pc!.onAddStream = (stream) {
-      print('Remote Go');
+    _pc!.onAddStream = (stream) {    
       remoteRenderer.srcObject = stream;
     };
 

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 
-import '../bloc/socket_bloc.dart';
-import '../bloc/web_rtc_bloc.dart';
+import '../bloc/socket/socket_bloc.dart';
+import '../bloc/web_rtc/web_rtc_bloc.dart';
 
 class WebRtcRender extends StatefulWidget {
   const WebRtcRender(
@@ -155,9 +155,9 @@ class _WebRtcRenderState extends State<WebRtcRender> {
             disconnected: () => debugPrint('disconnected'),
             receiveJoined: () {
               debugPrint('receiveJoined');
-              Future.delayed(Duration(seconds: 3),
-                  () => _webRTCBloc.sendOffer(widget.roomId));
-              // _webRTCBloc.sendOffer(widget.roomId);
+              // Future.delayed(Duration(seconds: 3),
+              //     () => _webRTCBloc.sendOffer(widget.roomId));
+              _webRTCBloc.sendOffer(widget.roomId);
             },
             receiveOffer: (data) async {
               debugPrint('receiveOffer');
@@ -185,13 +185,18 @@ class _WebRtcRenderState extends State<WebRtcRender> {
               setState(() {});
             },
             error: () => debugPrint('error'),
-            timeout: () => debugPrint('timeout'));
+            timeout: () => debugPrint('timeout'),
+            receiveMessage: (data) {
+              debugPrint('meassage');
+              setState(() {});
+            });
       },
       builder: (context, state) {
         return state.maybeWhen(
           orElse: onlyLocalRender,
           receiveAnswer: (data) => localAndRemoteRender(size),
           receiveIce: (data) => localAndRemoteRender(size),
+          receiveMessage: (data) => localAndRemoteRender(size),
         );
       },
     );

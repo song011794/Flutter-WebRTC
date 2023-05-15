@@ -35,7 +35,7 @@ mixin _$SocketEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,7 +57,7 @@ mixin _$SocketEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,7 +79,7 @@ mixin _$SocketEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -226,7 +226,7 @@ class _$_SocketConnect implements _SocketConnect {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return connect();
   }
@@ -251,7 +251,7 @@ class _$_SocketConnect implements _SocketConnect {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return connect?.call();
   }
@@ -276,7 +276,7 @@ class _$_SocketConnect implements _SocketConnect {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (connect != null) {
@@ -425,7 +425,7 @@ class _$_SocketConnectingEvent implements _SocketConnectingEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return connecting();
   }
@@ -450,7 +450,7 @@ class _$_SocketConnectingEvent implements _SocketConnectingEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return connecting?.call();
   }
@@ -475,7 +475,7 @@ class _$_SocketConnectingEvent implements _SocketConnectingEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (connecting != null) {
@@ -624,7 +624,7 @@ class _$_SocketOnConnect implements _SocketOnConnect {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onConnect();
   }
@@ -649,7 +649,7 @@ class _$_SocketOnConnect implements _SocketOnConnect {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onConnect?.call();
   }
@@ -674,7 +674,7 @@ class _$_SocketOnConnect implements _SocketOnConnect {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onConnect != null) {
@@ -824,7 +824,7 @@ class _$_SocketConnectErrorEvent implements _SocketConnectErrorEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onConnectError();
   }
@@ -849,7 +849,7 @@ class _$_SocketConnectErrorEvent implements _SocketConnectErrorEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onConnectError?.call();
   }
@@ -874,7 +874,7 @@ class _$_SocketConnectErrorEvent implements _SocketConnectErrorEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onConnectError != null) {
@@ -1026,7 +1026,7 @@ class _$_SocketConnectTimeoutEvent implements _SocketConnectTimeoutEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onConnectTimeout();
   }
@@ -1051,7 +1051,7 @@ class _$_SocketConnectTimeoutEvent implements _SocketConnectTimeoutEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onConnectTimeout?.call();
   }
@@ -1076,7 +1076,7 @@ class _$_SocketConnectTimeoutEvent implements _SocketConnectTimeoutEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onConnectTimeout != null) {
@@ -1225,7 +1225,7 @@ class _$_SocketErrorEvent implements _SocketErrorEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onError();
   }
@@ -1250,7 +1250,7 @@ class _$_SocketErrorEvent implements _SocketErrorEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onError?.call();
   }
@@ -1275,7 +1275,7 @@ class _$_SocketErrorEvent implements _SocketErrorEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onError != null) {
@@ -1424,7 +1424,7 @@ class _$_SocketDisconnect implements _SocketDisconnect {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return disconnect();
   }
@@ -1449,7 +1449,7 @@ class _$_SocketDisconnect implements _SocketDisconnect {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return disconnect?.call();
   }
@@ -1474,7 +1474,7 @@ class _$_SocketDisconnect implements _SocketDisconnect {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (disconnect != null) {
@@ -1623,7 +1623,7 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onDisconnect();
   }
@@ -1648,7 +1648,7 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onDisconnect?.call();
   }
@@ -1673,7 +1673,7 @@ class _$_SocketOnDisconnect implements _SocketOnDisconnect {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onDisconnect != null) {
@@ -1858,7 +1858,7 @@ class _$_SocketSendJoinEvent implements _SocketSendJoinEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onSendJoin(event, data);
   }
@@ -1883,7 +1883,7 @@ class _$_SocketSendJoinEvent implements _SocketSendJoinEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onSendJoin?.call(event, data);
   }
@@ -1908,7 +1908,7 @@ class _$_SocketSendJoinEvent implements _SocketSendJoinEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onSendJoin != null) {
@@ -2064,7 +2064,7 @@ class _$_SocketJoinedEvent implements _SocketJoinedEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onJoined();
   }
@@ -2089,7 +2089,7 @@ class _$_SocketJoinedEvent implements _SocketJoinedEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onJoined?.call();
   }
@@ -2114,7 +2114,7 @@ class _$_SocketJoinedEvent implements _SocketJoinedEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onJoined != null) {
@@ -2299,7 +2299,7 @@ class _$_SocketSendOfferEvent implements _SocketSendOfferEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onSendOffer(event, data);
   }
@@ -2324,7 +2324,7 @@ class _$_SocketSendOfferEvent implements _SocketSendOfferEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onSendOffer?.call(event, data);
   }
@@ -2349,7 +2349,7 @@ class _$_SocketSendOfferEvent implements _SocketSendOfferEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onSendOffer != null) {
@@ -2533,7 +2533,7 @@ class _$_SocketGotOfferEvent implements _SocketGotOfferEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onGotOffer(data);
   }
@@ -2558,7 +2558,7 @@ class _$_SocketGotOfferEvent implements _SocketGotOfferEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onGotOffer?.call(data);
   }
@@ -2583,7 +2583,7 @@ class _$_SocketGotOfferEvent implements _SocketGotOfferEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onGotOffer != null) {
@@ -2774,7 +2774,7 @@ class _$_SocketSendAnswerEvent implements _SocketSendAnswerEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onSendAnswer(event, data);
   }
@@ -2799,7 +2799,7 @@ class _$_SocketSendAnswerEvent implements _SocketSendAnswerEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onSendAnswer?.call(event, data);
   }
@@ -2824,7 +2824,7 @@ class _$_SocketSendAnswerEvent implements _SocketSendAnswerEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onSendAnswer != null) {
@@ -3008,7 +3008,7 @@ class _$_SocketGotAnswerEvent implements _SocketGotAnswerEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onGotAnswer(data);
   }
@@ -3033,7 +3033,7 @@ class _$_SocketGotAnswerEvent implements _SocketGotAnswerEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onGotAnswer?.call(data);
   }
@@ -3058,7 +3058,7 @@ class _$_SocketGotAnswerEvent implements _SocketGotAnswerEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onGotAnswer != null) {
@@ -3249,7 +3249,7 @@ class _$_SocketSendIceEvent implements _SocketSendIceEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onSendIce(event, data);
   }
@@ -3274,7 +3274,7 @@ class _$_SocketSendIceEvent implements _SocketSendIceEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onSendIce?.call(event, data);
   }
@@ -3299,7 +3299,7 @@ class _$_SocketSendIceEvent implements _SocketSendIceEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onSendIce != null) {
@@ -3483,7 +3483,7 @@ class _$_SocketGotIceEvent implements _SocketGotIceEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onGotIce(data);
   }
@@ -3508,7 +3508,7 @@ class _$_SocketGotIceEvent implements _SocketGotIceEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onGotIce?.call(data);
   }
@@ -3533,7 +3533,7 @@ class _$_SocketGotIceEvent implements _SocketGotIceEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onGotIce != null) {
@@ -3723,7 +3723,7 @@ class _$_SocketSendMassageEvent implements _SocketSendMassageEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
     return onSendMassage(event, data);
   }
@@ -3748,7 +3748,7 @@ class _$_SocketSendMassageEvent implements _SocketSendMassageEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
     return onSendMassage?.call(event, data);
   }
@@ -3773,7 +3773,7 @@ class _$_SocketSendMassageEvent implements _SocketSendMassageEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onSendMassage != null) {
@@ -3880,7 +3880,7 @@ abstract class _$$_SocketGotMassageEventCopyWith<$Res> {
           $Res Function(_$_SocketGotMassageEvent) then) =
       __$$_SocketGotMassageEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({String event, dynamic data});
+  $Res call({dynamic data});
 }
 
 /// @nodoc
@@ -3894,14 +3894,9 @@ class __$$_SocketGotMassageEventCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? event = null,
     Object? data = freezed,
   }) {
     return _then(_$_SocketGotMassageEvent(
-      null == event
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String,
       freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -3913,16 +3908,14 @@ class __$$_SocketGotMassageEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SocketGotMassageEvent implements _SocketGotMassageEvent {
-  const _$_SocketGotMassageEvent(this.event, [this.data]);
+  const _$_SocketGotMassageEvent([this.data]);
 
-  @override
-  final String event;
   @override
   final dynamic data;
 
   @override
   String toString() {
-    return 'SocketEvent.onGotMassage(event: $event, data: $data)';
+    return 'SocketEvent.onGotMassage(data: $data)';
   }
 
   @override
@@ -3930,13 +3923,12 @@ class _$_SocketGotMassageEvent implements _SocketGotMassageEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SocketGotMassageEvent &&
-            (identical(other.event, event) || other.event == event) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, event, const DeepCollectionEquality().hash(data));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
@@ -3965,9 +3957,9 @@ class _$_SocketGotMassageEvent implements _SocketGotMassageEvent {
     required TResult Function(String event, dynamic data) onSendIce,
     required TResult Function(dynamic data) onGotIce,
     required TResult Function(String event, dynamic data) onSendMassage,
-    required TResult Function(String event, dynamic data) onGotMassage,
+    required TResult Function(dynamic data) onGotMassage,
   }) {
-    return onGotMassage(event, data);
+    return onGotMassage(data);
   }
 
   @override
@@ -3990,9 +3982,9 @@ class _$_SocketGotMassageEvent implements _SocketGotMassageEvent {
     TResult? Function(String event, dynamic data)? onSendIce,
     TResult? Function(dynamic data)? onGotIce,
     TResult? Function(String event, dynamic data)? onSendMassage,
-    TResult? Function(String event, dynamic data)? onGotMassage,
+    TResult? Function(dynamic data)? onGotMassage,
   }) {
-    return onGotMassage?.call(event, data);
+    return onGotMassage?.call(data);
   }
 
   @override
@@ -4015,11 +4007,11 @@ class _$_SocketGotMassageEvent implements _SocketGotMassageEvent {
     TResult Function(String event, dynamic data)? onSendIce,
     TResult Function(dynamic data)? onGotIce,
     TResult Function(String event, dynamic data)? onSendMassage,
-    TResult Function(String event, dynamic data)? onGotMassage,
+    TResult Function(dynamic data)? onGotMassage,
     required TResult orElse(),
   }) {
     if (onGotMassage != null) {
-      return onGotMassage(event, data);
+      return onGotMassage(data);
     }
     return orElse();
   }
@@ -4106,10 +4098,9 @@ class _$_SocketGotMassageEvent implements _SocketGotMassageEvent {
 }
 
 abstract class _SocketGotMassageEvent implements SocketEvent {
-  const factory _SocketGotMassageEvent(final String event,
-      [final dynamic data]) = _$_SocketGotMassageEvent;
+  const factory _SocketGotMassageEvent([final dynamic data]) =
+      _$_SocketGotMassageEvent;
 
-  String get event;
   dynamic get data;
   @JsonKey(ignore: true)
   _$$_SocketGotMassageEventCopyWith<_$_SocketGotMassageEvent> get copyWith =>
@@ -4129,6 +4120,7 @@ mixin _$SocketState {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4142,6 +4134,7 @@ mixin _$SocketState {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4155,6 +4148,7 @@ mixin _$SocketState {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -4169,6 +4163,7 @@ mixin _$SocketState {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4182,6 +4177,7 @@ mixin _$SocketState {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -4195,6 +4191,7 @@ mixin _$SocketState {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -4265,6 +4262,7 @@ class _$_SocketInitial implements _SocketInitial {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) {
     return initial();
   }
@@ -4281,6 +4279,7 @@ class _$_SocketInitial implements _SocketInitial {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) {
     return initial?.call();
   }
@@ -4297,6 +4296,7 @@ class _$_SocketInitial implements _SocketInitial {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -4317,6 +4317,7 @@ class _$_SocketInitial implements _SocketInitial {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) {
     return initial(this);
   }
@@ -4333,6 +4334,7 @@ class _$_SocketInitial implements _SocketInitial {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) {
     return initial?.call(this);
   }
@@ -4349,6 +4351,7 @@ class _$_SocketInitial implements _SocketInitial {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -4409,6 +4412,7 @@ class _$_SocketConnected implements _SocketConnected {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) {
     return connected();
   }
@@ -4425,6 +4429,7 @@ class _$_SocketConnected implements _SocketConnected {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) {
     return connected?.call();
   }
@@ -4441,6 +4446,7 @@ class _$_SocketConnected implements _SocketConnected {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) {
     if (connected != null) {
@@ -4461,6 +4467,7 @@ class _$_SocketConnected implements _SocketConnected {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) {
     return connected(this);
   }
@@ -4477,6 +4484,7 @@ class _$_SocketConnected implements _SocketConnected {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) {
     return connected?.call(this);
   }
@@ -4493,6 +4501,7 @@ class _$_SocketConnected implements _SocketConnected {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) {
     if (connected != null) {
@@ -4553,6 +4562,7 @@ class _$_SocketDisonnected implements _SocketDisonnected {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) {
     return disconnected();
   }
@@ -4569,6 +4579,7 @@ class _$_SocketDisonnected implements _SocketDisonnected {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) {
     return disconnected?.call();
   }
@@ -4585,6 +4596,7 @@ class _$_SocketDisonnected implements _SocketDisonnected {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) {
     if (disconnected != null) {
@@ -4605,6 +4617,7 @@ class _$_SocketDisonnected implements _SocketDisonnected {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) {
     return disconnected(this);
   }
@@ -4621,6 +4634,7 @@ class _$_SocketDisonnected implements _SocketDisonnected {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) {
     return disconnected?.call(this);
   }
@@ -4637,6 +4651,7 @@ class _$_SocketDisonnected implements _SocketDisonnected {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) {
     if (disconnected != null) {
@@ -4697,6 +4712,7 @@ class _$_SocketError implements _SocketError {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) {
     return error();
   }
@@ -4713,6 +4729,7 @@ class _$_SocketError implements _SocketError {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) {
     return error?.call();
   }
@@ -4729,6 +4746,7 @@ class _$_SocketError implements _SocketError {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -4749,6 +4767,7 @@ class _$_SocketError implements _SocketError {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) {
     return error(this);
   }
@@ -4765,6 +4784,7 @@ class _$_SocketError implements _SocketError {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) {
     return error?.call(this);
   }
@@ -4781,6 +4801,7 @@ class _$_SocketError implements _SocketError {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -4841,6 +4862,7 @@ class _$_SocketTimeout implements _SocketTimeout {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) {
     return timeout();
   }
@@ -4857,6 +4879,7 @@ class _$_SocketTimeout implements _SocketTimeout {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) {
     return timeout?.call();
   }
@@ -4873,6 +4896,7 @@ class _$_SocketTimeout implements _SocketTimeout {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) {
     if (timeout != null) {
@@ -4893,6 +4917,7 @@ class _$_SocketTimeout implements _SocketTimeout {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) {
     return timeout(this);
   }
@@ -4909,6 +4934,7 @@ class _$_SocketTimeout implements _SocketTimeout {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) {
     return timeout?.call(this);
   }
@@ -4925,6 +4951,7 @@ class _$_SocketTimeout implements _SocketTimeout {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) {
     if (timeout != null) {
@@ -4985,6 +5012,7 @@ class _$_SocketReceiveJoined implements _SocketReceiveJoined {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) {
     return receiveJoined();
   }
@@ -5001,6 +5029,7 @@ class _$_SocketReceiveJoined implements _SocketReceiveJoined {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) {
     return receiveJoined?.call();
   }
@@ -5017,6 +5046,7 @@ class _$_SocketReceiveJoined implements _SocketReceiveJoined {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) {
     if (receiveJoined != null) {
@@ -5037,6 +5067,7 @@ class _$_SocketReceiveJoined implements _SocketReceiveJoined {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) {
     return receiveJoined(this);
   }
@@ -5053,6 +5084,7 @@ class _$_SocketReceiveJoined implements _SocketReceiveJoined {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) {
     return receiveJoined?.call(this);
   }
@@ -5069,6 +5101,7 @@ class _$_SocketReceiveJoined implements _SocketReceiveJoined {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) {
     if (receiveJoined != null) {
@@ -5157,6 +5190,7 @@ class _$_SocketReceiveOffer implements _SocketReceiveOffer {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) {
     return receiveOffer(data);
   }
@@ -5173,6 +5207,7 @@ class _$_SocketReceiveOffer implements _SocketReceiveOffer {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) {
     return receiveOffer?.call(data);
   }
@@ -5189,6 +5224,7 @@ class _$_SocketReceiveOffer implements _SocketReceiveOffer {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) {
     if (receiveOffer != null) {
@@ -5209,6 +5245,7 @@ class _$_SocketReceiveOffer implements _SocketReceiveOffer {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) {
     return receiveOffer(this);
   }
@@ -5225,6 +5262,7 @@ class _$_SocketReceiveOffer implements _SocketReceiveOffer {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) {
     return receiveOffer?.call(this);
   }
@@ -5241,6 +5279,7 @@ class _$_SocketReceiveOffer implements _SocketReceiveOffer {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) {
     if (receiveOffer != null) {
@@ -5335,6 +5374,7 @@ class _$_SocketReceiveAnswer implements _SocketReceiveAnswer {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) {
     return receiveAnswer(data);
   }
@@ -5351,6 +5391,7 @@ class _$_SocketReceiveAnswer implements _SocketReceiveAnswer {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) {
     return receiveAnswer?.call(data);
   }
@@ -5367,6 +5408,7 @@ class _$_SocketReceiveAnswer implements _SocketReceiveAnswer {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) {
     if (receiveAnswer != null) {
@@ -5387,6 +5429,7 @@ class _$_SocketReceiveAnswer implements _SocketReceiveAnswer {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) {
     return receiveAnswer(this);
   }
@@ -5403,6 +5446,7 @@ class _$_SocketReceiveAnswer implements _SocketReceiveAnswer {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) {
     return receiveAnswer?.call(this);
   }
@@ -5419,6 +5463,7 @@ class _$_SocketReceiveAnswer implements _SocketReceiveAnswer {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) {
     if (receiveAnswer != null) {
@@ -5512,6 +5557,7 @@ class _$_SocketReceiveIce implements _SocketReceiveIce {
     required TResult Function(dynamic data) receiveOffer,
     required TResult Function(dynamic data) receiveAnswer,
     required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
   }) {
     return receiveIce(data);
   }
@@ -5528,6 +5574,7 @@ class _$_SocketReceiveIce implements _SocketReceiveIce {
     TResult? Function(dynamic data)? receiveOffer,
     TResult? Function(dynamic data)? receiveAnswer,
     TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
   }) {
     return receiveIce?.call(data);
   }
@@ -5544,6 +5591,7 @@ class _$_SocketReceiveIce implements _SocketReceiveIce {
     TResult Function(dynamic data)? receiveOffer,
     TResult Function(dynamic data)? receiveAnswer,
     TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
     required TResult orElse(),
   }) {
     if (receiveIce != null) {
@@ -5564,6 +5612,7 @@ class _$_SocketReceiveIce implements _SocketReceiveIce {
     required TResult Function(_SocketReceiveOffer value) receiveOffer,
     required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
     required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
   }) {
     return receiveIce(this);
   }
@@ -5580,6 +5629,7 @@ class _$_SocketReceiveIce implements _SocketReceiveIce {
     TResult? Function(_SocketReceiveOffer value)? receiveOffer,
     TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
   }) {
     return receiveIce?.call(this);
   }
@@ -5596,6 +5646,7 @@ class _$_SocketReceiveIce implements _SocketReceiveIce {
     TResult Function(_SocketReceiveOffer value)? receiveOffer,
     TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
     TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
     required TResult orElse(),
   }) {
     if (receiveIce != null) {
@@ -5611,5 +5662,196 @@ abstract class _SocketReceiveIce implements SocketState {
   dynamic get data;
   @JsonKey(ignore: true)
   _$$_SocketReceiveIceCopyWith<_$_SocketReceiveIce> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SocketReceiveMessageCopyWith<$Res> {
+  factory _$$_SocketReceiveMessageCopyWith(_$_SocketReceiveMessage value,
+          $Res Function(_$_SocketReceiveMessage) then) =
+      __$$_SocketReceiveMessageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$_SocketReceiveMessageCopyWithImpl<$Res>
+    extends _$SocketStateCopyWithImpl<$Res, _$_SocketReceiveMessage>
+    implements _$$_SocketReceiveMessageCopyWith<$Res> {
+  __$$_SocketReceiveMessageCopyWithImpl(_$_SocketReceiveMessage _value,
+      $Res Function(_$_SocketReceiveMessage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_SocketReceiveMessage(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SocketReceiveMessage implements _SocketReceiveMessage {
+  const _$_SocketReceiveMessage([final Map<String, dynamic> data = const {}])
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'SocketState.receiveMessage(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SocketReceiveMessage &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SocketReceiveMessageCopyWith<_$_SocketReceiveMessage> get copyWith =>
+      __$$_SocketReceiveMessageCopyWithImpl<_$_SocketReceiveMessage>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() connected,
+    required TResult Function() disconnected,
+    required TResult Function() error,
+    required TResult Function() timeout,
+    required TResult Function() receiveJoined,
+    required TResult Function(dynamic data) receiveOffer,
+    required TResult Function(dynamic data) receiveAnswer,
+    required TResult Function(dynamic data) receiveIce,
+    required TResult Function(Map<String, dynamic> data) receiveMessage,
+  }) {
+    return receiveMessage(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? connected,
+    TResult? Function()? disconnected,
+    TResult? Function()? error,
+    TResult? Function()? timeout,
+    TResult? Function()? receiveJoined,
+    TResult? Function(dynamic data)? receiveOffer,
+    TResult? Function(dynamic data)? receiveAnswer,
+    TResult? Function(dynamic data)? receiveIce,
+    TResult? Function(Map<String, dynamic> data)? receiveMessage,
+  }) {
+    return receiveMessage?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? connected,
+    TResult Function()? disconnected,
+    TResult Function()? error,
+    TResult Function()? timeout,
+    TResult Function()? receiveJoined,
+    TResult Function(dynamic data)? receiveOffer,
+    TResult Function(dynamic data)? receiveAnswer,
+    TResult Function(dynamic data)? receiveIce,
+    TResult Function(Map<String, dynamic> data)? receiveMessage,
+    required TResult orElse(),
+  }) {
+    if (receiveMessage != null) {
+      return receiveMessage(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SocketInitial value) initial,
+    required TResult Function(_SocketConnected value) connected,
+    required TResult Function(_SocketDisonnected value) disconnected,
+    required TResult Function(_SocketError value) error,
+    required TResult Function(_SocketTimeout value) timeout,
+    required TResult Function(_SocketReceiveJoined value) receiveJoined,
+    required TResult Function(_SocketReceiveOffer value) receiveOffer,
+    required TResult Function(_SocketReceiveAnswer value) receiveAnswer,
+    required TResult Function(_SocketReceiveIce value) receiveIce,
+    required TResult Function(_SocketReceiveMessage value) receiveMessage,
+  }) {
+    return receiveMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SocketInitial value)? initial,
+    TResult? Function(_SocketConnected value)? connected,
+    TResult? Function(_SocketDisonnected value)? disconnected,
+    TResult? Function(_SocketError value)? error,
+    TResult? Function(_SocketTimeout value)? timeout,
+    TResult? Function(_SocketReceiveJoined value)? receiveJoined,
+    TResult? Function(_SocketReceiveOffer value)? receiveOffer,
+    TResult? Function(_SocketReceiveAnswer value)? receiveAnswer,
+    TResult? Function(_SocketReceiveIce value)? receiveIce,
+    TResult? Function(_SocketReceiveMessage value)? receiveMessage,
+  }) {
+    return receiveMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SocketInitial value)? initial,
+    TResult Function(_SocketConnected value)? connected,
+    TResult Function(_SocketDisonnected value)? disconnected,
+    TResult Function(_SocketError value)? error,
+    TResult Function(_SocketTimeout value)? timeout,
+    TResult Function(_SocketReceiveJoined value)? receiveJoined,
+    TResult Function(_SocketReceiveOffer value)? receiveOffer,
+    TResult Function(_SocketReceiveAnswer value)? receiveAnswer,
+    TResult Function(_SocketReceiveIce value)? receiveIce,
+    TResult Function(_SocketReceiveMessage value)? receiveMessage,
+    required TResult orElse(),
+  }) {
+    if (receiveMessage != null) {
+      return receiveMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SocketReceiveMessage implements SocketState {
+  const factory _SocketReceiveMessage([final Map<String, dynamic> data]) =
+      _$_SocketReceiveMessage;
+
+  Map<String, dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$_SocketReceiveMessageCopyWith<_$_SocketReceiveMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
