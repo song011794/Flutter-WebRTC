@@ -19,6 +19,8 @@ class _ChatState extends State<Chat> {
   late final ChatBloc chatBloc;
   late final SocketBloc socektBloc;
 
+  final ScrollController _scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
@@ -28,6 +30,16 @@ class _ChatState extends State<Chat> {
 
     chatBloc.sendNickNmae(nickName: widget.nickName);
   }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void toDownScroll() => WidgetsBinding.instance.addPostFrameCallback((_) {
+        _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+      });
 
   Widget textCard(
           {required String nickName,
@@ -79,6 +91,7 @@ class _ChatState extends State<Chat> {
               state.whenOrNull(
                 receiveMessage: (data) {
                   chatBloc.add(ChatEvent.onRecieve(data));
+                  toDownScroll();
                 },
               );
             },
@@ -90,6 +103,7 @@ class _ChatState extends State<Chat> {
                       reviceMessage: (data) {
                         print('reloadMessage : ${data}');
                         return ListView.builder(
+                            controller: _scrollController,
                             itemCount: data.length,
                             itemBuilder: (context, index) => textCard(
                                 nickName: data[index]['nickName'],
@@ -100,6 +114,7 @@ class _ChatState extends State<Chat> {
                         print('sendMessage : ${data}');
 
                         return ListView.builder(
+                            controller: _scrollController,
                             itemCount: data.length,
                             itemBuilder: (context, index) => textCard(
                                 nickName: data[index]['nickName'],
@@ -126,6 +141,7 @@ class _ChatState extends State<Chat> {
                       text: value,
                       roomId: widget.roomId,
                       nickName: widget.nickName);
+                  toDownScroll();
                 },
               ),
             ),
