@@ -1,12 +1,12 @@
 import 'dart:io';
 
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:webrtc/pages/login_page.dart';
-
-import 'package:webrtc/pages/web_rtc_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'bloc/chat/chat_bloc.dart';
 import 'bloc/socket/socket_bloc.dart';
@@ -37,78 +37,40 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: FlexThemeData.light(
+        scheme: FlexScheme.sakura,
+        surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+        blendLevel: 7,
+        subThemesData: const FlexSubThemesData(
+          blendOnLevel: 10,
+          blendOnColors: false,
+          useTextTheme: true,
+          useM2StyleDividerInM3: true,
+        ),
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        useMaterial3: true,
+        swapLegacyOnMaterial3: true,
+        fontFamily: GoogleFonts.notoSans().fontFamily,
       ),
+      darkTheme: FlexThemeData.dark(
+        scheme: FlexScheme.sakura,
+        surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+        blendLevel: 13,
+        subThemesData: const FlexSubThemesData(
+          blendOnLevel: 20,
+          useTextTheme: true,
+          useM2StyleDividerInM3: true,
+        ),
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        useMaterial3: true,
+        swapLegacyOnMaterial3: true,
+        fontFamily: GoogleFonts.notoSans().fontFamily,
+      ),
+      themeMode: ThemeMode.system,
       home: const LoginPage(),
     );
   }
 }
-
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({super.key, required this.title});
-//   final String title;
-
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   final _room = ValueNotifier<String>('');
-//   final _nickName = ValueNotifier<String>('');
-
-//   void _incrementCounter() {
-
-//     Navigator.push(
-//         context,
-//         MaterialPageRoute(
-//             builder: (context) => WebRTCPage2(
-//                   roomId: _room.value,
-//                   nickName: _nickName.value,
-//                 )));
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // context.watch<SocketBloc>();
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(widget.title),
-//       ),
-//       body: Container(
-//         padding: EdgeInsets.symmetric(horizontal: 16),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             ValueListenableBuilder(
-//               valueListenable: _room,
-//               builder: (BuildContext context, value, Widget? child) =>
-//                   TextField(
-//                 onChanged: (value) => _room.value = value,
-//                 onSubmitted: (value) => _room.value = value,
-//                 maxLength: 8,
-//               ),
-//             ),
-//             ValueListenableBuilder(
-//               valueListenable: _nickName,
-//               builder: (BuildContext context, value, Widget? child) =>
-//                   TextField(
-//                 onChanged: (value) => _nickName.value = value,
-//                 onSubmitted: (value) => _nickName.value = value,
-//                 maxLength: 8,
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: _incrementCounter,
-//         tooltip: 'Increment',
-//         child: const Icon(Icons.add),
-//       ),
-//     );
-//   }
-// }
 
 class MyHttpOverrides extends HttpOverrides {
   @override
