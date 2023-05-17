@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'component/chat.dart';
-import 'component/web_rtc_render.dart';
+import '../component/chat.dart';
+import '../component/web_rtc_render.dart';
 
 class WebRTCPage2 extends StatefulWidget {
   final String roomId;

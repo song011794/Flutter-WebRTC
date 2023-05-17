@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:webrtc/pages/login_page.dart';
 
-import 'package:webrtc/web_rtc_page.dart';
+import 'package:webrtc/pages/web_rtc_page.dart';
 
 import 'bloc/chat/chat_bloc.dart';
 import 'bloc/socket/socket_bloc.dart';
@@ -39,77 +40,75 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const LoginPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({super.key, required this.title});
+//   final String title;
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+//   @override
+//   State<MyHomePage> createState() => _MyHomePageState();
+// }
 
-class _MyHomePageState extends State<MyHomePage> {
-  final _room = ValueNotifier<String>('');
-  final _nickName = ValueNotifier<String>('');
+// class _MyHomePageState extends State<MyHomePage> {
+//   final _room = ValueNotifier<String>('');
+//   final _nickName = ValueNotifier<String>('');
 
-  void _incrementCounter() {
-    // Navigator.push(
-    //     context, MaterialPageRoute(builder: (context) => WebRTCPage()));
+//   void _incrementCounter() {
 
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => WebRTCPage2(
-                  roomId: _room.value,
-                  nickName: _nickName.value,
-                )));
-  }
+//     Navigator.push(
+//         context,
+//         MaterialPageRoute(
+//             builder: (context) => WebRTCPage2(
+//                   roomId: _room.value,
+//                   nickName: _nickName.value,
+//                 )));
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    // context.watch<SocketBloc>();
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ValueListenableBuilder(
-              valueListenable: _room,
-              builder: (BuildContext context, value, Widget? child) =>
-                  TextField(
-                onChanged: (value) => _room.value = value,
-                onSubmitted: (value) => _room.value = value,
-                maxLength: 8,
-              ),
-            ),
-            ValueListenableBuilder(
-              valueListenable: _nickName,
-              builder: (BuildContext context, value, Widget? child) =>
-                  TextField(
-                onChanged: (value) => _nickName.value = value,
-                onSubmitted: (value) => _nickName.value = value,
-                maxLength: 8,
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     // context.watch<SocketBloc>();
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(widget.title),
+//       ),
+//       body: Container(
+//         padding: EdgeInsets.symmetric(horizontal: 16),
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             ValueListenableBuilder(
+//               valueListenable: _room,
+//               builder: (BuildContext context, value, Widget? child) =>
+//                   TextField(
+//                 onChanged: (value) => _room.value = value,
+//                 onSubmitted: (value) => _room.value = value,
+//                 maxLength: 8,
+//               ),
+//             ),
+//             ValueListenableBuilder(
+//               valueListenable: _nickName,
+//               builder: (BuildContext context, value, Widget? child) =>
+//                   TextField(
+//                 onChanged: (value) => _nickName.value = value,
+//                 onSubmitted: (value) => _nickName.value = value,
+//                 maxLength: 8,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: _incrementCounter,
+//         tooltip: 'Increment',
+//         child: const Icon(Icons.add),
+//       ),
+//     );
+//   }
+// }
 
 class MyHttpOverrides extends HttpOverrides {
   @override
