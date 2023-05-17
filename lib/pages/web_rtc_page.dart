@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import '../component/chat.dart';
 import '../component/web_rtc_render.dart';
 
-class WebRTCPage2 extends StatefulWidget {
+class WebRTCPage extends StatefulWidget {
   final String roomId;
   final String nickName;
 
-  const WebRTCPage2({super.key, required this.roomId, required this.nickName});
+  const WebRTCPage({super.key, required this.roomId, required this.nickName});
 
   @override
   _WebRTCPageState createState() => _WebRTCPageState();
 }
 
-class _WebRTCPageState extends State<WebRTCPage2> {
+class _WebRTCPageState extends State<WebRTCPage> {
   final GlobalKey _renderkey = GlobalKey();
 
   PreferredSizeWidget _appBar() => AppBar(

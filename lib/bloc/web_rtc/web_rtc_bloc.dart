@@ -108,11 +108,12 @@ class WebRTCBloc extends Bloc<WebRtcEvent, WebRtcState> {
     await _pc!.addCandidate(ice);
   }
 
-  void dispose() {
-    // Clean up the resources used by the peer connection
-    localRenderer.dispose();
-    remoteRenderer.dispose();
-    _localStream?.dispose();
-    _pc?.close();
-  }
+  @override
+  Future<void> close() async{
+    await localRenderer.dispose();
+    await remoteRenderer.dispose();
+    await _localStream?.dispose();
+    await _pc?.close();
+    return super.close();
+  }  
 }

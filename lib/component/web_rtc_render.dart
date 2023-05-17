@@ -45,11 +45,11 @@ class _WebRtcRenderState extends State<WebRtcRender> {
     });
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    context.read<WebRTCBloc>().dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _webRTCBloc.close();
+  //   super.dispose();
+  // }
 
   Widget onlyLocalRender() {
     return BlocBuilder<WebRTCBloc, WebRtcState>(

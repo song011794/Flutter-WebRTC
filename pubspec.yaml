@@ -45,6 +45,7 @@ dependencies:
   json_serializable: ^6.6.2
   flex_color_scheme: ^7.1.1
   google_fonts: ^4.0.4
+  fluttertoast: ^8.2.1
 
 dev_dependencies:
   flutter_test:

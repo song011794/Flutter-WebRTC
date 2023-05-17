@@ -5,12 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:webrtc/bloc/login/login_cubit.dart';
 import 'package:webrtc/pages/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'bloc/chat/chat_bloc.dart';
 import 'bloc/socket/socket_bloc.dart';
-import 'bloc/web_rtc/web_rtc_bloc.dart';
 
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
@@ -20,11 +19,8 @@ void main() async {
       lazy: false,
       create: (BuildContext context) => SocketBloc(),
     ),
-    BlocProvider<WebRTCBloc>(
-      create: (BuildContext context) => WebRTCBloc(context.read<SocketBloc>()),
-    ),
-    BlocProvider<ChatBloc>(
-      create: (BuildContext context) => ChatBloc(context.read<SocketBloc>()),
+    BlocProvider<LoginCubit>(
+      create: (BuildContext context) => LoginCubit(),
     ),
   ], child: const MyApp()));
 }
