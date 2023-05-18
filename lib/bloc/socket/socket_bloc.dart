@@ -39,7 +39,7 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
     });
 
     on<_SocketGotMassageEvent>((event, emit) {
-      emit(const _SocketReceiveMessage({'nickName' : '' , 'payload' : ''}));
+      emit(const _SocketReceiveMessage({'nickName': '', 'payload': ''}));
       print(event.toString());
       emit(_SocketReceiveMessage(event.data));
     });
